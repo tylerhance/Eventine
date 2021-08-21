@@ -1,12 +1,11 @@
-# NoSQL Budget Tracker
+# Eventine
 
 [![Badge](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
 [![Badge](https://img.shields.io/badge/GitHub-chabivz-blueviolet?style=flat-square&logo=appveyor)](https://github.com/chabivz)
-[![Badge](https://img.shields.io/badge/GitHub-chabivz-blueviolet?style=flat-square&logo=appveyor)](https://github.com/tylerhance)
-[![Badge](https://img.shields.io/badge/GitHub-chabivz-blueviolet?style=flat-square&logo=appveyor)](https://github.com/DannyRoubin)
-
-Hi Traveler! The Budget Tracker app is an app that can track your expenses and your income. You can download the app and use it whether you are online or offline!
-
+[![Badge](https://img.shields.io/badge/GitHub-tylerhance-blueviolet?style=flat-square&logo=appveyor)](https://github.com/tylerhance)
+[![Badge](https://img.shields.io/badge/GitHub-DannyRoubin-blueviolet?style=flat-square&logo=appveyor)](https://github.com/DannyRoubin)
+[![Badge](https://img.shields.io/badge/GitHub-MohamedB-01-blueviolet?style=flat-square&logo=appveyor)](https://github.com/MohamedB-01)
+Eventine 
 ## Table of Contents
 
 - [About the Project](#about-the-project)
@@ -54,8 +53,18 @@ Hi Traveler! The Budget Tracker app is an app that can track your expenses and y
 
 ## Question
 
-- [Email](mailto:chrisabiva@hotmail.com)
 - [Github](https://github.com/Chabivz)
+- [Github](https://github.com/tylerhance)
+- [Github](https://github.com/DannyRoubin)
+- [Github](https://github.com/MohamedB-01)
+
+## Contribution
+
+- [Github](https://github.com/Chabivz)
+- [Github](https://github.com/tylerhance)
+- [Github](https://github.com/DannyRoubin)
+- [Github](https://github.com/MohamedB-01)
+
 ## License
 
 The MIT License (MIT)
