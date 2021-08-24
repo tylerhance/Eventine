@@ -1,22 +1,27 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Event } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    user: async (parent, args, context) => {
+    users: async (parent, args, context) => {
+      return User.find().populate("events");
+    },
+    user: async (parent, { _id }) => {
+      return User.findOne({ _id }).populate("events");
+    },
+    events: async (parent, { _id }) => {
+      const params = _id ? { _id } : {};
+      return Event.find(params).sort({ createdAt: -1 });
+    },
+    event: async (parent, { eventId }) => {
+      return Event.findOne({ _id: eventId });
+    },
+    me: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: "orders.products",
-          populate: "category",
-        });
-
-        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
-
-        return user;
+        return User.findOne({ _id: context.user._id }).populate("events");
       }
-
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
   Mutation: {

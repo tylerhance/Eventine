@@ -8,13 +8,40 @@ const typeDefs = gql`
     email: String
   }
 
+  type Event {
+    _id: ID
+    title: String
+    organizer: String
+    createdAt: Date
+    attendeesCount: Integer
+    location: [location]!
+    comments: [comments]!
+  }
+
+  type location {
+    name: String
+    address: String
+    zipCode: Integer
+  }
+
+  type comments {
+    commentText: String
+    commentAuthor: String
+    createdAt: Date
+  }
+
   type Auth {
     token: ID
     user: User
+    events(username: String): [Event]
   }
 
   type Query {
-    user: User
+    users: [User]
+    user(_id: ID!): User
+    events(_id: ID): [Event]
+    event(eventId: ID!): Event
+    me: User
   }
 
   type Mutation {
