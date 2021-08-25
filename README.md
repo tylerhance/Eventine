@@ -4,7 +4,7 @@
 [![Badge](https://img.shields.io/badge/GitHub-chabivz-blueviolet?style=flat-square&logo=appveyor)](https://github.com/chabivz)
 [![Badge](https://img.shields.io/badge/GitHub-tylerhance-blueviolet?style=flat-square&logo=appveyor)](https://github.com/tylerhance)
 [![Badge](https://img.shields.io/badge/GitHub-DannyRoubin-blueviolet?style=flat-square&logo=appveyor)](https://github.com/DannyRoubin)
-[![Badge](https://img.shields.io/badge/GitHub-MohamedB-01-blueviolet?style=flat-square&logo=appveyor)](https://github.com/MohamedB-01)
+[![Badge](https://img.shields.io/badge/GitHub-MohamedB-01-blueviolet?style=flat-square&logo=appveyor)](https://github.com/MohamedB--01)
 Eventine 
 ## Table of Contents
 
