@@ -5,6 +5,7 @@ const typeDefs = gql`
     _id: ID
     firstName: String
     lastName: String
+    username: String
     email: String
   }
 
@@ -38,8 +39,8 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    user(_id: ID!): User
-    events(_id: ID): [Event]
+    user(username: String!): User
+    events(username: String): [Event]
     event(eventId: ID!): Event
     me: User
   }
@@ -48,6 +49,7 @@ const typeDefs = gql`
     addUser(
       firstName: String!
       lastName: String!
+      username: String!
       email: String!
       password: String!
     ): Auth
