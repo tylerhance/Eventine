@@ -1,0 +1,14 @@
+.container {
+  background-color: grey;
+  /* Darksteel Grey|#2b3240|
+Burlywood|#ddb96b| */
+}
+h1 {
+  color:#2b3240;
+}
+p {
+  color:#ddb96b;
+}
+* {
+  background-color:  #2b3240;
+}
