@@ -15,5 +15,8 @@
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.12.3"
   }
 }
