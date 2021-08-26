@@ -1,5 +1,5 @@
 import React from "react";
-// import Jumbotron from "../../components/Jumbotron";
+import Jumbotron from "../../components/Jumbotron";
 // import './style.css';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -16,12 +16,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 // import Link from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
+import Image from "../../assets/images/explore.jpeg";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="#ddba6b" href="https://material-ui.com/">
         Eventine
       </Link>{' '}
       {new Date().getFullYear()}
@@ -33,6 +34,16 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
+  },
+  image: {
+    backgroundImage: `url(${Image})`,
+    backgroundRepeat: "no-repeat",
+    backgroundColor:
+      theme.palette.type === "light"
+        ? theme.palette.grey[50]
+        : theme.palette.grey[900],
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
@@ -134,7 +145,6 @@ export default function Album() {
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
         </Typography>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
           Thanks for visiting! Eventine was built for you by Chris Abiva, Danny Roubin, Mohamed Bassiouni & Tyler Hance

@@ -38,7 +38,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div >
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />

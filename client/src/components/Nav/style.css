@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.ul flex-row {
+    justify-content: right;
+}
+
+h1 {
+    color: #2a3240
+}
