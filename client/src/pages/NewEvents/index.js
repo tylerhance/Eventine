@@ -18,14 +18,6 @@ const UserProfile = () => {
   //   });
 
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
   
   return (
     <div className="container">
