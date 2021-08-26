@@ -4,7 +4,7 @@
 [![Badge](https://img.shields.io/badge/GitHub-chabivz-blueviolet?style=flat-square&logo=appveyor)](https://github.com/chabivz)
 [![Badge](https://img.shields.io/badge/GitHub-tylerhance-blueviolet?style=flat-square&logo=appveyor)](https://github.com/tylerhance)
 [![Badge](https://img.shields.io/badge/GitHub-DannyRoubin-blueviolet?style=flat-square&logo=appveyor)](https://github.com/DannyRoubin)
-[![Badge](https://img.shields.io/badge/GitHub-MohamedB-01-blueviolet?style=flat-square&logo=appveyor)](https://github.com/MohamedB-01)
+[![Badge](https://img.shields.io/badge/GitHub-MohamedB-01-blueviolet?style=flat-square&logo=appveyor)](https://github.com/MohamedB--01)
 Eventine 
 ## Table of Contents
 
@@ -31,7 +31,7 @@ Eventine
 
 - Open [Eventine](https://github.com/tylerhance/Eventine)
 - Clone the repository
-- install all the packages by `npm i` or `npm i express mongoose path `
+- install all the packages by `npm i` or `npm i express mongoose path @material-ui/core @material-ui/icons`
 - On a separate terminal run `mongo` or `mongod` server.
 - Start the server by typing `npm run start`
 
@@ -65,6 +65,13 @@ Eventine
 - [Github](https://github.com/DannyRoubin)
 - [Github](https://github.com/MohamedB-01)
 
+
+## Color Scheme
+
+|Color|Hex|
+|---|---|
+Darksteel Grey|#2b3240|
+Burlywood|#ddb96b|
 ## License
 
 The MIT License (MIT)

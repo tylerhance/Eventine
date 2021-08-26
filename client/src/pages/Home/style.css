@@ -1,0 +1,25 @@
+:root {
+  --primary: #232F3E;
+  --secondary: #F3A847;
+  --tertiary: #B12704;
+  --light: #ddb96b;
+  --dark: #272f32;
+  --error: rgb(228, 46, 1);
+  --spacing-one: calc(1rem * 0.5);
+  --spacing-two: calc(1rem);
+}
+
+.container {
+  background-color: grey;
+  /* Darksteel Grey|#2b3240|
+Burlywood|#ddb96b| */
+}
+h1 {
+  color:#ddb96b;
+}
+p {
+  color:#ddb96b;
+}
+* {
+  background-color:  #2b3240;
+}
