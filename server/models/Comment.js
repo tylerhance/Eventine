@@ -3,8 +3,7 @@ const dateFormat = require('../utils/dateFormat');
 
 const commentSchema = new Schema({
    
-    comments: 
-      {
+    
         commentText: {
           type: String,
           required: true,
@@ -20,7 +19,7 @@ const commentSchema = new Schema({
           default: Date.now,
           get: (timestamp) => dateFormat(timestamp),
         },
-      },
+      
     
   });
 
