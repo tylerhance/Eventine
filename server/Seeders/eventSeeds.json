@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Brian's Event",
+    "organizer": "Brian Kernighan",
+    "location": {
+      "name": "Brian's place",
+      "address": "101 Brian's st",
+      "zipCode": "98004"
+    }
+  },
+  {
+    "title": "Max's Event",
+    "organizer": "Max Kanat-Alexander",
+    "location": {
+      "name": "Max's place",
+      "address": "101 Max's st",
+      "zipCode": "98004"
+    }
+  },
+  {
+    "title": "Andy's Event",
+    "organizer": "Andy Lucky",
+    "location": {
+      "name": "Andy's place",
+      "address": "101 Andy's st",
+      "zipCode": "98004"
+    }
+  },
+  {
+    "title": "Kent's Event",
+    "organizer": "Kent Beck",
+    "location": {
+      "name": "Kent's place",
+      "address": "101 Kent's st",
+      "zipCode": "98004"
+    }
+  },
+  {
+    "title": "Edward's Event",
+    "organizer": "Edward Berard",
+    "location": {
+      "name": "Edward's place",
+      "address": "101 Edward's st",
+      "zipCode": "98004"
+    }
+  },
+  {
+    "title": "Alan's Event",
+    "organizer": "Alan Kay",
+    "location": {
+      "name": "Alan's place",
+      "address": "101 Alan's st",
+      "zipCode": "98004"
+    }
+  },
+  {
+    "title": "C.A's Event",
+    "organizer": "C.A Hoare",
+    "location": {
+      "name": "C.A's place",
+      "address": "101 C.A's st",
+      "zipCode": "98004"
+    }
+  },
+  {
+    "title": "David's Event",
+    "organizer": "David Thomas",
+    "location": {
+      "name": "David's place",
+      "address": "101 David's st",
+      "zipCode": "98004"
+    }
+  },
+  {
+    "title": "Donald's Event",
+    "organizer": "Donald Knuth",
+    "location": {
+      "name": "Donald's place",
+      "address": "101 Donald's st",
+      "zipCode": "98004"
+    }
+  },
+  {
+    "title": "Lernantino's Event",
+    "organizer": "Lernantino Efficient",
+    "location": {
+      "name": "Lernantino's place",
+      "address": "101 Lernantino's st",
+      "zipCode": "98004"
+    }
+  }
+]
