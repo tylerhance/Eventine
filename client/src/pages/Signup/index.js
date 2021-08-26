@@ -45,62 +45,6 @@ import Image from "../../assets/images/paint.jpeg";
 //     });
 //   };
 
-//   return (
-//     <div className="container my-1">
-//       <Link to="/login">← Go to Login</Link>
-
-//       <h2>Signup</h2>
-//       <form onSubmit={handleFormSubmit}>
-//         <div className="flex-row space-between my-2">
-//           <label htmlFor="firstName">First Name:</label>
-//           <input
-//             placeholder="First"
-//             name="firstName"
-//             type="firstName"
-//             id="firstName"
-//             onChange={handleChange}
-//           />
-//         </div>
-//         <div className="flex-row space-between my-2">
-//           <label htmlFor="lastName">Last Name:</label>
-//           <input
-//             placeholder="Last"
-//             name="lastName"
-//             type="lastName"
-//             id="lastName"
-//             onChange={handleChange}
-//           />
-//         </div>
-//         <div className="flex-row space-between my-2">
-//           <label htmlFor="email">Email:</label>
-//           <input
-//             placeholder="youremail@test.com"
-//             name="email"
-//             type="email"
-//             id="email"
-//             onChange={handleChange}
-//           />
-//         </div>
-//         <div className="flex-row space-between my-2">
-//           <label htmlFor="pwd">Password:</label>
-//           <input
-//             placeholder="******"
-//             name="password"
-//             type="password"
-//             id="pwd"
-//             onChange={handleChange}
-//           />
-//         </div>
-//         <div className="flex-row flex-end">
-//           <button type="submit">Submit</button>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default Signup;
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -158,8 +102,6 @@ export default function SignUp() {
 
   const [addUser, {error}] = useMutation(ADD_USER);
 
-
-
   const classes = useStyles();
 
   const handleChange = (event) => {
@@ -172,19 +114,16 @@ export default function SignUp() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addUser({
+    console.log("test");
+    const {data} = await addUser({
       variables: {
-        email: formData.email,
-        password: formData.password,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        username: formData.username
+        ...formData
       },
     });
-    console.log(mutationResponse);
+    console.log(data);
 
-    // const token = mutationResponse.data.addUser.token;
-    // Auth.login(token);
+    const token = data.addUser.token;
+    Auth.login(token);
   };
 
   return (
