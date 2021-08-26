@@ -11,4 +11,9 @@
   --eventine-dark: #2b3240;
   --eventine-primary: #2b3240;
   --eventine-secondary: #ddb96b;
+  --lavender: #ccd6f6;
+}
+
+form {
+  color: var(--lavender);
 }

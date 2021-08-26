@@ -7,8 +7,18 @@
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
-  --eventine-light: #ddb96b;
+  --eventine-light: #857041;
   --eventine-dark: #2b3240;
   --eventine-primary: #2b3240;
   --eventine-secondary: #ddb96b;
+  --lavender: #ccd6f6;
+}
+
+.color-test  {
+  color: var(--lavender);
+  
+} 
+
+input {
+  color: (var(--lavender))
 }

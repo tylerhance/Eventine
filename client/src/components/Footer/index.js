@@ -4,14 +4,8 @@ import "./style.css";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
-import FolderIcon from "@material-ui/icons/Folder";
-import LinkedIn from "@material-ui/icons/LinkedIn";
-
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
-import Divider from "@material-ui/core/Divider";
-import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -34,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 const Footer = () => {
   const classes = useStyles();
   return (
-    <div>
+    <div className='footer-div'>
       <div className={classes.container}>
         <div style={{ gridColumnEnd: "span 3" }}>
           <Paper className={classes.paper}>
