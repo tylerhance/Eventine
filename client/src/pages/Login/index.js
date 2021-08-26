@@ -85,12 +85,13 @@ import Image from '../../assets/images/concert.jpeg';
 // }
 
 // export default Login;
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Eventine
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}

@@ -14,7 +14,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
+import { Link } from 'react-router-dom';
 
 function Copyright() {
   return (
@@ -78,19 +79,19 @@ export default function Album() {
               
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              With <span><strong>Eventine</strong></span> - A place to explore local happenings and connect with other like-minded people. Sign In or create an account
+              With <span><strong><em>Eventine</em></strong></span> - A place to find local happenings and connect with other like-minded people. Sign In or create an account
               to start traversing events in and around your location. 
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justifyContent="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
+                  <Button component={Link} to="/login" variant="contained" color="primary">
+                   Sign In
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
+                  <Button component={Link} to="/signup" variant="outlined" color="primary">
+                    Signup
                   </Button>
                 </Grid>
               </Grid>
