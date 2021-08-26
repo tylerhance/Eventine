@@ -25,6 +25,8 @@ const typeDefs = gql`
     zipCode: Integer
   }
 
+  
+
   type comments {
     commentText: String
     commentAuthor: String
