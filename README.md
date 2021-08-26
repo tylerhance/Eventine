@@ -2,10 +2,9 @@
 
 [![Badge](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
 [![Badge](https://img.shields.io/badge/GitHub-chabivz-blueviolet?style=flat-square&logo=appveyor)](https://github.com/chabivz)
-[![Badge](https://img.shields.io/badge/GitHub-tylerhance-blueviolet?style=flat-square&logo=appveyor)](https://github.com/tylerhance)
-[![Badge](https://img.shields.io/badge/GitHub-DannyRoubin-blueviolet?style=flat-square&logo=appveyor)](https://github.com/DannyRoubin)
-[![Badge](https://img.shields.io/badge/GitHub-MohamedB-01-blueviolet?style=flat-square&logo=appveyor)](https://github.com/MohamedB--01)
-Eventine 
+[![Badge](https://img.shields.io/badge/GitHub-tylerhance-brightgreen?style=flat-square&logo=appveyor)](https://github.com/tylerhance)
+[![Badge](https://img.shields.io/badge/GitHub-DannyRoubin-lightgrey?style=flat-square&logo=appveyor)](https://github.com/DannyRoubin)
+[![Badge](https://img.shields.io/badge/GitHub-MohamedB--01-red?style=flat-square&logo=appveyor)](https://github.com/MohamedB-01)
 ## Table of Contents
 
 - [About the Project](#about-the-project)
@@ -53,18 +52,17 @@ Eventine
 
 ## Question
 
-- [Github](https://github.com/Chabivz)
-- [Github](https://github.com/tylerhance)
-- [Github](https://github.com/DannyRoubin)
-- [Github](https://github.com/MohamedB-01)
+- [Chris Abiva](https://github.com/Chabivz)
+- [Tyler Hance](https://github.com/tylerhance)
+- [Danny Roubin](https://github.com/DannyRoubin)
+- [Mohamed Bassiouni](https://github.com/MohamedB-01)
 
 ## Contribution
 
-- [Github](https://github.com/Chabivz)
-- [Github](https://github.com/tylerhance)
-- [Github](https://github.com/DannyRoubin)
-- [Github](https://github.com/MohamedB-01)
-
+- [Chris Abiva](https://github.com/Chabivz)
+- [Tyler Hance](https://github.com/tylerhance)
+- [Danny Roubin](https://github.com/DannyRoubin)
+- [Mohamed Bassiouni](https://github.com/MohamedB-01)
 
 ## Color Scheme
 

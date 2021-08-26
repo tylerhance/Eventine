@@ -12,3 +12,14 @@
   --eventine-primary: #2b3240;
   --eventine-secondary: #ddb96b;
 }
+
+
+.ul-accounts li {
+  color: var(--light);
+  list-style: none;
+}
+
+.ul-accounts li a {
+  color: var(--light);
+}
+
