@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     margin: 0;
     padding: 0;
@@ -9,4 +10,23 @@
 
 h1 {
     color: #2a3240
+=======
+:root {
+  --primary: #232F3E;
+  --secondary: #F3A847;
+  --tertiary: #B12704;
+  --light: #ddb96b;
+  --dark: #2b3240;
+  --error: rgb(228, 46, 1);
+  --spacing-one: calc(1rem * 0.5);
+  --spacing-two: calc(1rem);
+  --eventine-light: #ddb96b;
+  --eventine-dark: #2b3240;
+  --eventine-primary: #2b3240;
+  --eventine-secondary: #ddb96b;
+}
+
+.flex-row {
+  background-color: var(--eventine-dark);
+>>>>>>> 7032d78c4549769f6699423af68fcae619d5ae0b
 }

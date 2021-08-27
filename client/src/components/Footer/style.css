@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap');
+
 :root {
   --primary: #232F3E;
   --secondary: #F3A847;
@@ -13,17 +15,24 @@
   --eventine-secondary: #ddb96b;
 }
 
-h1 {
+.footer-div {
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  
+}
+
+.ul-accounts li {
+  font-family: 'Hina Mincho', serif;
   color: var(--light);
+  list-style: none;
+  line-height: 1.5em;
+  
 }
-p {
+
+.ul-accounts li a {
   color: var(--light);
+  font-family: 'Hina Mincho', serif;
 }
-* {
-<<<<<<< HEAD
-  background-color:  #2b3240;
-}
-=======
-  background-color: var(--dark);
-}
->>>>>>> 7032d78c4549769f6699423af68fcae619d5ae0b
+

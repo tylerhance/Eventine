@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
@@ -18,6 +19,15 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Image from "../../assets/images/paint.jpeg";
+=======
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import Auth from '../../utils/auth';
+import { ADD_USER } from '../../utils/mutations';
+import './style.css';
+
+>>>>>>> 7032d78c4549769f6699423af68fcae619d5ae0b
 
 // function Signup(props) {
 //   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -117,7 +127,15 @@ export default function SignUp() {
     console.log("test");
     const {data} = await addUser({
       variables: {
+<<<<<<< HEAD
         ...formData
+=======
+        username: formState.username,
+        email: formState.email,
+        password: formState.password,
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+>>>>>>> 7032d78c4549769f6699423af68fcae619d5ae0b
       },
     });
     console.log(data);
@@ -127,6 +145,7 @@ export default function SignUp() {
   };
 
   return (
+<<<<<<< HEAD
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
@@ -228,6 +247,52 @@ export default function SignUp() {
               </Grid>
             </Grid>
           </form>
+=======
+    <div className="color-test container my-1">
+      <Link className='color-test' to="/login">← Go to Login</Link>
+
+      <h2>Signup</h2>
+      <form onSubmit={handleFormSubmit}>
+      <div className="flex-row space-between my-2">
+          <label htmlFor="username">Username:</label>
+          <input
+            placeholder="Username"
+            name="username"
+            type="username"
+            id="username"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="firstName">First Name:</label>
+          <input
+            placeholder="First"
+            name="firstName"
+            type="firstName"
+            id="firstName"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="lastName">Last Name:</label>
+          <input
+            placeholder="Last"
+            name="lastName"
+            type="lastName"
+            id="lastName"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="email">Email:</label>
+          <input
+            placeholder="youremail@test.com"
+            name="email"
+            type="email"
+            id="email"
+            onChange={handleChange}
+          />
+>>>>>>> 7032d78c4549769f6699423af68fcae619d5ae0b
         </div>
       </Grid>
     </Grid>

@@ -2,11 +2,15 @@
   --primary: #232F3E;
   --secondary: #F3A847;
   --tertiary: #B12704;
-  --light: #fafafa;
-  --dark: #272f32;
+  --light: #ddb96b;
+  --dark: #2b3240;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
+  --eventine-light: #ddb96b;
+  --eventine-dark: #2b3240;
+  --eventine-primary: #2b3240;
+  --eventine-secondary: #ddb96b;
 }
 
 * {
@@ -26,7 +30,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   font-size: 16px;
-  color: var(--dark);
+  color: var(--primary);
 }
 
 h1,
