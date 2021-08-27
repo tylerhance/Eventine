@@ -16,7 +16,7 @@ const typeDefs = gql`
     createdAt: Date
     attendeesCount: Integer
     location: [location]!
-    comments: [comments]!
+    comments: [comment]!
   }
 
   type location {
@@ -25,7 +25,8 @@ const typeDefs = gql`
     zipCode: Integer
   }
 
-  type comments {
+  type comment {
+    _id: ID
     commentText: String
     commentAuthor: String
     createdAt: Date
@@ -61,6 +62,10 @@ const typeDefs = gql`
       password: String
     ): User
     login(email: String!, password: String!): Auth
+    addEvent(title: String!): Event
+    addComment(eventId: ID!, commentText: String!): Event
+    removeEvent(eventId: ID!): Event
+    removeComment(eventId: ID!, commentId: ID!): Thought
   }
 `;
 
