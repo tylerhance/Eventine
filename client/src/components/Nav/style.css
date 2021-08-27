@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-* {
-    margin: 0;
-    padding: 0;
-}
-
-.ul flex-row {
-    justify-content: right;
-}
-
-h1 {
-    color: #2a3240
-=======
 :root {
   --primary: #232F3E;
   --secondary: #F3A847;
@@ -28,5 +15,4 @@ h1 {
 
 .flex-row {
   background-color: var(--eventine-dark);
->>>>>>> 7032d78c4549769f6699423af68fcae619d5ae0b
 }
