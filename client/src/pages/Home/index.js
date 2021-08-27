@@ -17,6 +17,10 @@ import Container from '@material-ui/core/Container';
 // import Link from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
 import Image from "../../assets/images/explore.jpeg";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import EmailIcon from "@material-ui/icons/Email";
+import Paper from "@material-ui/core/Paper";
 
 function Copyright() {
   return (
