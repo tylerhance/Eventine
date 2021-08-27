@@ -20,10 +20,5 @@ p {
   color: var(--light);
 }
 * {
-<<<<<<< HEAD
-  background-color:  #2b3240;
-}
-=======
   background-color: var(--dark);
 }
->>>>>>> 7032d78c4549769f6699423af68fcae619d5ae0b

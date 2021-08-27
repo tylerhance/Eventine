@@ -20,7 +20,6 @@ import Image from "../../assets/images/explore.jpeg";
 
 function Copyright() {
   return (
-<<<<<<< HEAD
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="#ddba6b" href="https://material-ui.com/">
@@ -29,14 +28,6 @@ function Copyright() {
       {new Date().getFullYear()}
       {'.'}
     </Typography>
-=======
-    <div className="container">
-      <Jumbotron>
-        <h1>Eventine</h1>
-        <p>We are here to be awesome</p>
-      </Jumbotron>
-    </div>
->>>>>>> 7032d78c4549769f6699423af68fcae619d5ae0b
   );
 }
 
