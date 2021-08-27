@@ -9,7 +9,7 @@ const eventSchema = new Schema({
         maxlength: 280,
         trim: true,
       },
-  location: [ {
+  location:  {
       name: {
           type: String,
           required: true,
@@ -21,12 +21,12 @@ const eventSchema = new Schema({
           trim: true,
       },
       zipCode: {
-          type: Integer,
+          type: Number,
           required: true,
           trim: true,
       }
-  }
- ],
+  },
+  
   organizer: {
     type: String,
     required: true,
@@ -38,28 +38,34 @@ const eventSchema = new Schema({
     get: (timestamp) => dateFormat(timestamp),
   },
   attendeesCount: {
-    type: Integer,
+    type: Number,
     required: true,
     trim: true,
+    default: 0,
  },
   comments: [
     {
-      commentText: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 280,
-      },
-      commentAuthor: {
-        type: String,
-        required: true,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
-      },
+      type: Schema.Types.ObjectId,
+      ref: "Comment",
     },
+
+    // {
+    //   commentText: {
+    //     type: String,
+    //     required: true,
+    //     minlength: 1,
+    //     maxlength: 280,
+    //   },
+    //   commentAuthor: {
+    //     type: String,
+    //     required: true,
+    //   },
+    //   createdAt: {
+    //     type: Date,
+    //     default: Date.now,
+    //     get: (timestamp) => dateFormat(timestamp),
+    //   },
+    // },
   ],
 });
 
