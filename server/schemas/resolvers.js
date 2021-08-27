@@ -7,14 +7,14 @@ const resolvers = {
     users: async (parent, args, context) => {
       return User.find().populate("events");
     },
-    user: async (parent, { _id }) => {
-      return User.findOne({ _id }).populate("events");
+    user: async (parent, { userId }) => {
+      return User.findOne({ _id: userId });
     },
     events: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
       return Event.find(params).sort({ createdAt: -1 });
     },
-    event: async (parent, { eventId }) => {
+    eventQ: async (parent, { eventId }) => {
       return Event.findOne({ _id: eventId });
     },
     me: async (parent, args, context) => {
