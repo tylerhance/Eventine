@@ -32,6 +32,21 @@ const eventSchema = new Schema({
     required: true,
     trim: true,
   },
+  description: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  eventDate: {
+    type: Date,
+    required: true,
+    trim: true, 
+  },
+  eventTime: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -44,10 +59,6 @@ const eventSchema = new Schema({
     default: 0,
  },
   comments: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Comment",
-    },
 
     {
       commentText: {
