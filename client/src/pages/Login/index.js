@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%',
+    width: '100%', 
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -122,6 +122,8 @@ export default function SignInSide() {
 
     const token = data.login.token;
     Auth.login(token);
+
+    this.props.history.push('/userprofile');
   };
 
   return (
