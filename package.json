@@ -17,6 +17,13 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "@material-ui/core": "^4.12.3"
+    "@material-ui/core": "^4.12.3",
+<<<<<<< HEAD
+    "@material-ui/icons": "^4.11.2",
+    "react-slick": "^0.28.1",
+    "slick-carousel": "^1.8.1"
+=======
+    "@material-ui/icons": "^4.11.2"
+>>>>>>> 7032d78c4549769f6699423af68fcae619d5ae0b
   }
 }
