@@ -13,19 +13,36 @@ const typeDefs = gql`
     _id: ID
     title: String
     organizer: String
+<<<<<<< HEAD
     createdAt: String
     attendeesCount: Int
     location: [location]!
     comments: [comment]!
+=======
+    createdAt: Date
+    attendeesCount: Number
+    location: [location]!
+    comments: [Comment]!
+>>>>>>> Mohamed
   }
 
   type location {
     name: String
     address: String
+<<<<<<< HEAD
     zipCode: Int
   }
 
   type comments {
+=======
+    zipCode: Number
+  }
+
+  
+
+  type Comment {
+    _id: ID
+>>>>>>> Mohamed
     commentText: String
     commentAuthor: String
     createdAt: String
@@ -41,7 +58,8 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     events(username: String): [Event]
-    event(eventId: ID!): Event
+    eventQ(eventId: ID!): Event
+    comments(eventId: ID!): [Event]
     me: User
   }
 
@@ -61,11 +79,13 @@ const typeDefs = gql`
       password: String
     ): User
     login(email: String!, password: String!): Auth
-    addEvent(title: String!): Event
-    addComment(eventId: ID!, commentText: String!): Event
-    removeEvent(eventId: ID!): Event
-    removeComment(eventId: ID!, commentId: ID!): Thought
+    createEvent(title: String!, organizer: String!, location: [location]!): Event
+    updateEvent(title: String, organizer: String, location: [location]): Event
+    deleteEvent(eventId: ID!): Event
+    addComment(eventId: ID!, commentText: String!, commentAuthor: String!): Event
+    removeComment(eventId: ID!, commentId: ID!): Event
   }
+  
 `;
 
 module.exports = typeDefs;

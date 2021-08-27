@@ -65,71 +65,37 @@ const resolvers = {
 
       return { token, user };
     },
-    addEvent: async (parent, { title }, context) => {
-      if (context.user) {
-        const event = await Event.create({
-          title,
-          organizer: context.user.username,
-        });
+    createEvent: async (parent, { title, organizer, location }) => {
+      const eventQ = await Event.create({ title, organizer, location });
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { events: event._id } }
-        );
+      await User.findOneAndUpdate(
+        { username: organizer },
+        { $addToSet: { events: eventQ._id } }
+      );
 
-        return event;
-      }
-      throw new AuthenticationError("You need to be logged in!");
+      return eventQ;
     },
-    addComment: async (parent, { eventId, commentText }, context) => {
-      if (context.user) {
-        return Event.findOneAndUpdate(
-          { _id: eventId },
-          {
-            $addToSet: {
-              comments: { commentText, commentAuthor: context.user.username },
-            },
-          },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
-      }
-      throw new AuthenticationError("You need to be logged in!");
+    addComment: async (parent, { eventId, commentText, commentAuthor }) => {
+      return Event.findOneAndUpdate(
+        { _id: eventId },
+        {
+          $addToSet: { comments: { commentText, commentAuthor } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
     },
-    removeEvent: async (parent, { eventId }, context) => {
-      if (context.user) {
-        const event = await Event.findOneAndDelete({
-          _id: eventId,
-          eventAuthor: context.user.username,
-        });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { events: event._id } }
-        );
-
-        return event;
-      }
-      throw new AuthenticationError("You need to be logged in!");
+    deleteEvent: async (parent, { eventId }) => {
+      return Event.findOneAndDelete({ _id: eventId });
     },
-    removeComment: async (parent, { eventId, commentId }, context) => {
-      if (context.user) {
-        return Event.findOneAndUpdate(
-          { _id: eventId },
-          {
-            $pull: {
-              comments: {
-                _id: commentId,
-                commentAuthor: context.user.username,
-              },
-            },
-          },
-          { new: true }
-        );
-      }
-      throw new AuthenticationError("You need to be logged in!");
+    removeComment: async (parent, { eventId, commentId }) => {
+      return Event.findOneAndUpdate(
+        { _id: eventId },
+        { $pull: { comments: { _id: commentId } } },
+        { new: true }
+      );
     },
   },
 };
