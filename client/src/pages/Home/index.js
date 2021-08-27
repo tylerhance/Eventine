@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="container">
       <Jumbotron>
-        <h1>Starter Stack</h1>
+        <h1>Eventine</h1>
         <p>We are here to be awesome</p>
       </Jumbotron>
     </div>
