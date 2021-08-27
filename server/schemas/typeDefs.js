@@ -13,8 +13,8 @@ const typeDefs = gql`
     _id: ID
     title: String
     organizer: String
-    createdAt: Date
-    attendeesCount: Integer
+    createdAt: String
+    attendeesCount: Int
     location: [location]!
     comments: [comments]!
   }
@@ -22,7 +22,7 @@ const typeDefs = gql`
   type location {
     name: String
     address: String
-    zipCode: Integer
+    zipCode: Int
   }
 
   
@@ -30,7 +30,7 @@ const typeDefs = gql`
   type comments {
     commentText: String
     commentAuthor: String
-    createdAt: Date
+    createdAt: String
   }
 
   type Auth {

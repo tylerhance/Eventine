@@ -18,6 +18,17 @@ db.once("open", async () => {
     password: "password12345",
   });
 
+  await Event.create({
+    firstName: "Elijah",
+    lastName: "Holt",
+    email: "eholt@testmail.com",
+    location: {
+      zipcode: '98056',
+      title: 'Home',
+      location: 'Renton'
+    },
+  });
+
   console.log("users seeded");
 
   process.exit();
