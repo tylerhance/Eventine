@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+// import "./style.css";
 
 function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
+          <li className="mx-1">
+            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+            <Link to="/userprofile">User Profile</Link>
+          </li>
+          <li className="mx-1">
+            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+            <Link to="/createnewevents">Create New Event</Link>
+          </li>
           <li className="mx-1">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
@@ -22,7 +31,7 @@ function Nav() {
             <Link to="/signup">Signup</Link>
           </li>
           <li className="mx-1">
-            <Link to="/login">Login</Link>
+            <Link to="/login">Sign In</Link>
           </li>
         </ul>
       );
@@ -34,7 +43,7 @@ function Nav() {
       <h1>
         <Link to="/">
           <span role="img" aria-label="shopping bag"></span>
-          Starter Stack
+          Eventine
         </Link>
       </h1>
 
@@ -44,3 +53,4 @@ function Nav() {
 }
 
 export default Nav;
+

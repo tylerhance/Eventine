@@ -16,7 +16,7 @@ const typeDefs = gql`
     createdAt: String
     attendeesCount: Int
     location: String
-    comments: [Comment]!
+    comments: [Comment]
   }
 
   type location {
