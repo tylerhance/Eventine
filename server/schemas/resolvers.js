@@ -65,6 +65,38 @@ const resolvers = {
 
       return { token, user };
     },
+    createEvent: async (parent, { title, organizer, location }) => {
+      const eventQ = await Event.create({ title, organizer, location });
+
+      await User.findOneAndUpdate(
+        { username: organizer },
+        { $addToSet: { events: eventQ._id } }
+      );
+
+      return eventQ;
+    },
+    addComment: async (parent, { eventId, commentText, commentAuthor }) => {
+      return Event.findOneAndUpdate(
+        { _id: eventId },
+        {
+          $addToSet: { comments: { commentText, commentAuthor } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
+    deleteEvent: async (parent, { eventId }) => {
+      return Event.findOneAndDelete({ _id: eventId });
+    },
+    removeComment: async (parent, { eventId, commentId }) => {
+      return Event.findOneAndUpdate(
+        { _id: eventId },
+        { $pull: { comments: { _id: commentId } } },
+        { new: true }
+      );
+    },
   },
 };
 

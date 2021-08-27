@@ -16,7 +16,7 @@ const typeDefs = gql`
     createdAt: Date
     attendeesCount: Number
     location: [location]!
-    comments: [comments]!
+    comments: [Comment]!
   }
 
   type location {
@@ -44,7 +44,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     events(username: String): [Event]
-    event(eventId: ID!): Event
+    eventQ(eventId: ID!): Event
     comments(eventId: ID!): [Event]
     me: User
   }
