@@ -17,3 +17,8 @@
 form {
   color: var(--lavender);
 }
+
+.container {
+  display: flex;
+  align-content: center;
+}
