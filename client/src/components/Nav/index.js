@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 // import "./style.css";
 
 function Nav() {
-
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
