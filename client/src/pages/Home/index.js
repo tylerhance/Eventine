@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Jumbotron from "../../components/Jumbotron";
-// import './style.css';
+import './style.css';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -127,12 +127,14 @@ const styles = (theme) => ({
 function EventCategories(props) {
   const { classes } = props;
 
+  
   const images = [
     {
       url:
         'https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=400&q=80',
       title: 'Snorkeling',
       width: '40%',
+      
     },
     {
       url:
@@ -216,6 +218,7 @@ function EventCategories(props) {
       <div className={classes.images}>
         {images.map((image) => (
           <ButtonBase
+            component={Link} to="/eventslanding"
             key={image.title}
             className={classes.imageWrapper}
             style={{
