@@ -100,6 +100,7 @@ const resolvers = {
 
       return eventQ;
     },
+
     updateEvent: async (
       parent,
       {
@@ -131,11 +132,14 @@ const resolvers = {
           new: true,
         }
       );
+
     },
 
     deleteEvent: async (parent, { eventId }, context) => {
       if (context.user) {
+
         return Event.findOneAndDelete({ _id: eventId });
+
       }
 
       throw new AuthenticationError("Users can only delete their own events");
@@ -154,6 +158,7 @@ const resolvers = {
       );
     },
 
+
     updateComment: async (
       parent,
       { eventId, commentId, commentText },
@@ -165,6 +170,7 @@ const resolvers = {
         { new: true }
       );
     },
+
 
     removeComment: async (parent, { eventId, commentId }, context) => {
       return Event.findOneAndUpdate(

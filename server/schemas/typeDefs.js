@@ -100,6 +100,7 @@ const typeDefs = gql`
     ): Event
     updateComment(eventId: ID!, commentId: ID!, commentText: String!): Event
 
+
     removeComment(eventId: ID!, commentId: ID!): Event
   }
 `;
