@@ -14,12 +14,12 @@ const resolvers = {
       const params = _id ? { _id } : {};
       return Event.find(params).populate("location").sort({ createdAt: -1 });
     },
-    eventQ: async (parent, { eventId }) => {
+    eventDetails: async (parent, { eventId }) => {
       return Event.findOne({ _id: eventId });
     },
-    eventZip: async (parent, {}) => {
-      return Event.findOne({ location: location.zipCode });
-    },
+    // eventZip: async (parent, {}) => {
+    //   return Event.findOne({ location: location.zipCode });
+    // },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate("events");
@@ -68,9 +68,8 @@ const resolvers = {
 
       return { token, user };
     },
-
-    createEvent: async (parent, { title, organizer, location }) => {
-      const eventQ = await Event.create({ title, organizer, location });
+    createEvent: async (parent, { title, organizer, locationName, locationAddress, locationZipCode, description, eventDate, eventTime}) => {
+      const eventQ = await Event.create({ title, organizer, locationName, locationAddress, locationZipCode, description, eventDate, eventTime});
 
       await User.findOneAndUpdate(
         { username: organizer },

@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 export default function MaterialUIPickers() {
   const classes = useStyles();
   const [selectedDate, setSelectedDate] = React.useState(new Date('2021-08-25T21:00:00'));
-  const [addEvent, {error}] = useMutation(ADD_EVENT);
+  const [createEvent, {error}] = useMutation(ADD_EVENT);
   
   const [formData, setFormData] = useState({
     title: "",
@@ -77,7 +77,7 @@ export default function MaterialUIPickers() {
 
     try {
       console.log("test");
-    const {data} = await addEvent({
+    const {data} = await createEvent({
       variables: {
         ...formData
       }
@@ -87,9 +87,9 @@ export default function MaterialUIPickers() {
     
     } catch (e) {
       console.error(e);
-      setShowAlert(true);
   }
     
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -210,9 +210,3 @@ export default function MaterialUIPickers() {
     </Container>
   );
 }
-
-
-
-
-
-

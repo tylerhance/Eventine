@@ -8,25 +8,39 @@ const eventSchema = new Schema({
         minlength: 1,
         maxlength: 280,
         trim: true,
-      },
-  
+  },
   locationName: {
-      type: String,
-      required: true,
-      trim: true,
+          type: String,
+          required: true,
+          trim: true,
   },
-  address: {
-      type: String,
-      required: true,
-      trim: true,
+  locationAddress: {
+          type: String,
+          required: true,
+          trim: true,
   },
-  zipCode: {
-      type: Number,
-      required: true,
-      trim: true,
+  locationZipCode: {
+          type: Number,
+          required: true,
+          trim: true,
   },
   organizer: {
     type: String,
+    required: true,
+    trim: true,
+  },
+  description: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  eventDate: {
+    type: Date,
+    required: true,
+    trim: true, 
+  },
+  eventTime: {
+    type: Date,
     required: true,
     trim: true,
   },
@@ -42,10 +56,6 @@ const eventSchema = new Schema({
     default: 0,
  },
   comments: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Comment",
-    },
 
     {
       commentText: {
