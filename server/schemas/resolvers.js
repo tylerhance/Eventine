@@ -17,8 +17,9 @@ const resolvers = {
     eventDetails: async (parent, { eventId }) => {
       return Event.findOne({ _id: eventId });
     },
-    eventZip: async (parent, {}) => {
-      return Event.findOne({ location: location.zipCode });
+    eventZip: async (parent, { locationZipCode }) => {
+      const params = locationZipCode ? { locationZipCode } : {};
+      return Event.find(params).sort({ createdAt: -1 });
     },
     me: async (parent, args, context) => {
       if (context.user) {
