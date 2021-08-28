@@ -17,6 +17,7 @@ import Nav from "./components/Nav";
 import "./index.css";
 import Footer from "./components/Footer";
 import UserProfile from "./pages/UserProfile";
+import EventsLanding from "./pages/EventsLanding";
 
 
 const httpLink = createHttpLink({
@@ -50,6 +51,7 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/userprofile" component={UserProfile} />
             <Route exact path="/createnewevents" component={NewEvents} />
+            <Route exact path="/eventslanding" component={EventsLanding} />
             <Route component={NoMatch} />
           </Switch>
           <Footer />
