@@ -45,8 +45,6 @@ export const ADD_EVENT = gql`
     $zipcode: String!
     $dateOfEvent: String!
     $timeOfEvent: String!
-    $attendeeCount: String
-    $createdAt: String
   ) {
     createEvent(
       title: $firstName
@@ -57,10 +55,10 @@ export const ADD_EVENT = gql`
       eventDate: $dateOfEvent
       eventTime: $timeOfEvent
       organizer: $organizer
-      attendeesCount: $attendeeCount
     ) {
       _id
       createAt
+      attendeesCount
     }
   }
 `;

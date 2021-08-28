@@ -74,14 +74,22 @@ export default function MaterialUIPickers() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("test");
+
+    try {
+      console.log("test");
     const {data} = await addEvent({
       variables: {
         ...formData
-      },
+      }
     });
+
     console.log(data);
-  };
+    
+    } catch (e) {
+      console.error(e);
+      setShowAlert(true);
+  }
+    
 
   return (
     <Container component="main" maxWidth="xs">
