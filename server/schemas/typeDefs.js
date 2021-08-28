@@ -20,7 +20,7 @@ const typeDefs = gql`
   }
 
   type location {
-    name: String
+    locationName: String
     address: String
     zipCode: Int
   }

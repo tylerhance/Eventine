@@ -1,5 +1,6 @@
 import 'date-fns';
-import React from 'react';
+import React, { useState } from 'react';
+import { useMutation } from "@apollo/client";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,6 +15,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import DateFnsUtils from '@date-io/date-fns';
+import { ADD_EVENT } from "../../utils/mutations";
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
@@ -43,9 +45,42 @@ const useStyles = makeStyles((theme) => ({
 export default function MaterialUIPickers() {
   const classes = useStyles();
   const [selectedDate, setSelectedDate] = React.useState(new Date('2021-08-25T21:00:00'));
+  const [addEvent, {error}] = useMutation(ADD_EVENT);
+  
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    locationName: "",
+    address: "",
+    zipcode: "",
+    eventDate: "2021-08-25",
+    eventTime: "21:00:00"
+  });
+
+  
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+  };
+
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log("test");
+    const {data} = await addEvent({
+      variables: {
+        ...formData
+      },
+    });
+    console.log(data);
   };
 
   return (
@@ -58,7 +93,8 @@ export default function MaterialUIPickers() {
         <Typography component="h1" variant="h5">
           Create New Event
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate  onSubmit={handleFormSubmit}>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
               <TextField
@@ -70,6 +106,7 @@ export default function MaterialUIPickers() {
                 id="title"
                 label="Event Title"
                 autoFocus
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={12}>
@@ -81,6 +118,7 @@ export default function MaterialUIPickers() {
                 label="Description"
                 name="description"
                 autoComplete="description"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -90,8 +128,9 @@ export default function MaterialUIPickers() {
                 fullWidth
                 id="locationName"
                 label="Location Name"
-                name="location"
-                autoComplete="location"
+                name="locationName"
+                autoComplete="locationName"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -103,6 +142,7 @@ export default function MaterialUIPickers() {
                 label="Address"
                 name="address"
                 autoComplete="address"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -114,17 +154,18 @@ export default function MaterialUIPickers() {
                 label="Zipcode"
                 name="zipcode"
                 autoComplete="zipcode"
+                onChange={handleChange}
               />
             </Grid>
 
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            {/* <MuiPickersUtilsProvider utils={DateFnsUtils}> */}
       <Grid container justifyContent="space-around">
         <KeyboardDatePicker
           disableToolbar
           variant="inline"
           format="MM/dd/yyyy"
           margin="normal"
-          id="date-picker-inline"
+          id="eventDate"
           label="Date of Event"
           value={selectedDate}
           onChange={handleDateChange}
@@ -134,7 +175,7 @@ export default function MaterialUIPickers() {
         />
         <KeyboardTimePicker
           margin="normal"
-          id="time-picker"
+          id="eventTime"
           label="Time of Event"
           value={selectedDate}
           onChange={handleDateChange}
@@ -143,8 +184,9 @@ export default function MaterialUIPickers() {
           }}
         />
       </Grid>
-    </MuiPickersUtilsProvider>
+    {/* </MuiPickersUtilsProvider> */}
     </Grid>
+    </MuiPickersUtilsProvider>
           <Button
             type="submit"
             fullWidth
