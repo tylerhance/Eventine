@@ -98,6 +98,7 @@ const typeDefs = gql`
       commentText: String!
       commentAuthor: String!
     ): Event
+    updateComment(eventId: ID!, commentText: String!): Event
 
     removeComment(eventId: ID!, commentId: ID!): Event
   }
