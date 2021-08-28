@@ -24,6 +24,14 @@ class AuthService {
     }
   }
 
+
+  SignUp(idToken) {
+    // Saves user token to localStorage
+    localStorage.setItem('id_token', idToken);
+
+    window.location.assign('/userprofile');
+  }
+  
   getToken() {
     // Retrieves the user token from localStorage
     return localStorage.getItem('id_token');
@@ -33,7 +41,7 @@ class AuthService {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
 
-    window.location.assign('/');
+    window.location.assign('/userprofile');
   }
 
   logout() {
