@@ -15,14 +15,20 @@ const typeDefs = gql`
     organizer: String
     createdAt: String
     attendeesCount: Int
-    location: String
+    locationName: String
+    locationAddress: String
+    locationZipCode: Int
+    description: String
+    eventDate: String
+    eventTime: String
+    createdAt:String
     comments: [Comment]
   }
 
   type location {
-    name: String
-    address: String
-    zipCode: Int
+    locationName: String
+    locationAddress: String
+    locationZipCode: Int
   }
 
   
@@ -37,14 +43,13 @@ const typeDefs = gql`
   type Auth {
     token: ID
     user: User
-    events(username: String): [Event]
   }
 
   type Query {
     users: [User]
     user(userId: ID!): User
     events: [Event]
-    eventQ(eventId: ID!): Event
+    eventDetails(eventId: ID!): Event
     comments(eventId: ID!): [Event]
     me: User
   }
@@ -65,10 +70,15 @@ const typeDefs = gql`
       password: String
     ): User
     login(email: String!, password: String!): Auth
-    createEvent(title: String!, organizer: String!, location: String): Event
-    updateEvent(title: String, organizer: String, location: String): Event
+
+    createEvent( title: String, organizer: String, locationName: String, locationAddress: String, locationZipCode: Int, description: String, eventDate: String, eventTime: String, attendeesCount: Int): Event
+
+    updateEvent(title: String, organizer: String, locationName: String, locationAddress: String, locationZipCode: Int, description: String, eventDate: String, eventTime: String): Event
+
     deleteEvent(eventId: ID!): Event
+
     addComment(eventId: ID!, commentText: String!, commentAuthor: String!): Event
+    
     removeComment(eventId: ID!, commentId: ID!): Event
   }
   
