@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MaterialUIPickers() {
   const classes = useStyles();
-  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+  const [selectedDate, setSelectedDate] = React.useState(new Date('2021-08-25T21:00:00'));
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -88,33 +88,54 @@ export default function MaterialUIPickers() {
                 variant="outlined"
                 required
                 fullWidth
-                id="location"
-                label="Location"
+                id="locationName"
+                label="Location Name"
                 name="location"
                 autoComplete="location"
               />
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="address"
+                label="Address"
+                name="address"
+                autoComplete="address"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="zipcode"
+                label="Zipcode"
+                name="zipcode"
+                autoComplete="zipcode"
+              />
+            </Grid>
 
-
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid >
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <Grid container justifyContent="space-around">
         <KeyboardDatePicker
-          margin="normal"
-          id="date-picker-dialog"
-          label="Date picker dialog"
+          disableToolbar
+          variant="inline"
           format="MM/dd/yyyy"
+          margin="normal"
+          id="date-picker-inline"
+          label="Date of Event"
           value={selectedDate}
           onChange={handleDateChange}
           KeyboardButtonProps={{
             'aria-label': 'change date',
           }}
         />
-        </Grid>
-        <Grid >
         <KeyboardTimePicker
           margin="normal"
           id="time-picker"
-          label="Time picker"
+          label="Time of Event"
           value={selectedDate}
           onChange={handleDateChange}
           KeyboardButtonProps={{
@@ -123,8 +144,7 @@ export default function MaterialUIPickers() {
         />
       </Grid>
     </MuiPickersUtilsProvider>
-
-          </Grid>
+    </Grid>
           <Button
             type="submit"
             fullWidth

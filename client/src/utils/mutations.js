@@ -33,3 +33,29 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const CREATE_EVENT = gql`
+  mutation addEvent(
+    $title: String!
+    $description: String!
+    $date: String!
+    $username: String!
+    $password: String!
+  ) {
+    addEvent(
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      password: $password
+      username: $username
+    ) {
+      token
+      user {
+        _id
+      }
+    }
+  }
+`;
+
+
+// export const UPDATE_EVENT = gql``;
