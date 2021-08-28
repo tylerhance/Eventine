@@ -3,9 +3,9 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type User {
     _id: ID
+    username: String
     firstName: String
     lastName: String
-    username: String
     email: String
   }
 
@@ -30,8 +30,6 @@ const typeDefs = gql`
     locationZipCode: Int
   }
 
-  
-
   type Comment {
     _id: ID
     commentText: String
@@ -49,6 +47,7 @@ const typeDefs = gql`
     user(userId: ID!): User
     events: [Event]
     eventDetails(eventId: ID!): Event
+    eventZip(locationZipCode: Int!): [Event]
     comments(eventId: ID!): [Event]
     me: User
   }
@@ -70,17 +69,38 @@ const typeDefs = gql`
     ): User
     login(email: String!, password: String!): Auth
 
-    createEvent( title: String, organizer: String, locationName: String, locationAddress: String, locationZipCode: Int, description: String, eventDate: String, eventTime: String): Event
+    createEvent(
+      title: String
+      organizer: String
+      locationName: String
+      locationAddress: String
+      locationZipCode: Int
+      description: String
+      eventDate: String
+      eventTime: String
+    ): Event
 
-    updateEvent(title: String, organizer: String, locationName: String, locationAddress: String, locationZipCode: Int, description: String, eventDate: String, eventTime: String): Event
+    updateEvent(
+      title: String
+      organizer: String
+      locationName: String
+      locationAddress: String
+      locationZipCode: Int
+      description: String
+      eventDate: String
+      eventTime: String
+    ): Event
 
     deleteEvent(eventId: ID!): Event
 
-    addComment(eventId: ID!, commentText: String!, commentAuthor: String!): Event
-    
+    addComment(
+      eventId: ID!
+      commentText: String!
+      commentAuthor: String!
+    ): Event
+
     removeComment(eventId: ID!, commentId: ID!): Event
   }
-  
 `;
 
 module.exports = typeDefs;

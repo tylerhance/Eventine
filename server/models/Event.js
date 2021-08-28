@@ -1,28 +1,28 @@
-const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const { Schema, model } = require("mongoose");
+const dateFormat = require("../utils/dateFormat");
 
 const eventSchema = new Schema({
   title: {
-        type: String,
-        required: 'Please enter a title for your event!',
-        minlength: 1,
-        maxlength: 280,
-        trim: true,
+    type: String,
+    required: "Please enter a title for your event!",
+    minlength: 1,
+    maxlength: 280,
+    trim: true,
   },
   locationName: {
-          type: String,
-          required: true,
-          trim: true,
+    type: String,
+    required: true,
+    trim: true,
   },
   locationAddress: {
-          type: String,
-          required: true,
-          trim: true,
+    type: String,
+    required: true,
+    trim: true,
   },
   locationZipCode: {
-          type: Number,
-          required: true,
-          trim: true,
+    type: Number,
+    required: true,
+    trim: true,
   },
   organizer: {
     type: String,
@@ -37,7 +37,7 @@ const eventSchema = new Schema({
   eventDate: {
     type: Date,
     required: true,
-    trim: true, 
+    trim: true,
   },
   eventTime: {
     type: Date,
@@ -54,9 +54,8 @@ const eventSchema = new Schema({
     required: true,
     trim: true,
     default: 0,
- },
+  },
   comments: [
-
     {
       commentText: {
         type: String,
@@ -77,6 +76,6 @@ const eventSchema = new Schema({
   ],
 });
 
-const Event = model('Event', eventSchema);
+const Event = model("Event", eventSchema);
 
 module.exports = Event;
