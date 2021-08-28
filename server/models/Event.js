@@ -11,37 +11,37 @@ const eventSchema = new Schema({
   },
   locationName: {
           type: String,
-          required: true,
+          required: false,
           trim: true,
   },
   locationAddress: {
           type: String,
-          required: true,
+          required: false,
           trim: true,
   },
   locationZipCode: {
           type: Number,
-          required: true,
+          required: false,
           trim: true,
   },
   organizer: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   description: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   eventDate: {
     type: Date,
-    required: true,
+    required: false,
     trim: true, 
   },
   eventTime: {
     type: Date,
-    required: true,
+    required: false,
     trim: true,
   },
   createdAt: {
@@ -51,7 +51,7 @@ const eventSchema = new Schema({
   },
   attendeesCount: {
     type: Number,
-    required: true,
+    required: false,
     trim: true,
     default: 0,
  },
@@ -60,13 +60,13 @@ const eventSchema = new Schema({
     {
       commentText: {
         type: String,
-        required: true,
+        required: false,
         minlength: 1,
         maxlength: 280,
       },
       commentAuthor: {
         type: String,
-        required: true,
+        required: false,
       },
       createdAt: {
         type: Date,

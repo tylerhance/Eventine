@@ -1,4 +1,3 @@
-import 'date-fns';
 import React, { useState } from 'react';
 import { useMutation } from "@apollo/client";
 import Avatar from '@material-ui/core/Avatar';
@@ -14,13 +13,24 @@ import EventNoteIcon from '@material-ui/icons/EventNote';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import DateFnsUtils from '@date-io/date-fns';
 import { ADD_EVENT } from "../../utils/mutations";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
+import DatePicker from 'react-toolbox/lib/date_picker';
+
+
+const datetime = new Date(2015, 10, 16);
+const min_datetime = new Date(new Date(datetime).setDate(8));
+datetime.setHours(17);
+datetime.setMinutes(28);
+
+const localeExample = {
+  months: 'urtarrila_otsaila_martxoa_apirila_maiatza_ekaina_uztaila_abuztua_iraila_urria_azaroa_abendua'.split('_'),
+  monthsShort: 'urt._ots._mar._api._mai._eka._uzt._abu._ira._urr._aza._abe.'.split('_'),
+  weekdays: 'igandea_astelehena_asteartea_asteazkena_osteguna_ostirala_larunbata'.split('_'),
+  weekdaysShort: 'ig._al._ar._az._og._ol._lr.'.split('_'),
+  weekdaysLetter: 'ig_al_ar_az_og_ol_lr'.split('_')
+}
+
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -42,22 +52,42 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MaterialUIPickers() {
+export default function AddEvent() {
   const classes = useStyles();
   const [selectedDate, setSelectedDate] = React.useState(new Date('2021-08-25T21:00:00'));
-  const [createEvent, {error}] = useMutation(ADD_EVENT);
+  const [createEvent, {error}] = useMutation(ADD_EVENT, {
+
+  });
+  
   
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     locationName: "",
-    address: "",
-    zipcode: "",
-    eventDate: "2021-08-25",
-    eventTime: "21:00:00"
+    locationAddress: "",
+    locationZipcode: "",
   });
 
-  
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    
+    try {
+      console.log("test");
+    const {data} = await createEvent({
+      variables: {
+        ...formData
+      }
+      
+    });
+
+    console.log(data);
+    
+    } catch (e) {
+      console.error(e);
+    }
+    
+  }
+    
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -66,30 +96,6 @@ export default function MaterialUIPickers() {
     });
   };
 
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
-
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      console.log("test");
-    const {data} = await createEvent({
-      variables: {
-        ...formData
-      }
-    });
-
-    console.log(data);
-    
-    } catch (e) {
-      console.error(e);
-  }
-    
-  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -102,7 +108,6 @@ export default function MaterialUIPickers() {
           Create New Event
         </Typography>
         <form className={classes.form} noValidate  onSubmit={handleFormSubmit}>
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
               <TextField
@@ -114,6 +119,7 @@ export default function MaterialUIPickers() {
                 id="title"
                 label="Event Title"
                 autoFocus
+                value={formData.title}
                 onChange={handleChange}
               />
             </Grid>
@@ -126,6 +132,7 @@ export default function MaterialUIPickers() {
                 label="Description"
                 name="description"
                 autoComplete="description"
+                value={formData.description}
                 onChange={handleChange}
               />
             </Grid>
@@ -138,6 +145,7 @@ export default function MaterialUIPickers() {
                 label="Location Name"
                 name="locationName"
                 autoComplete="locationName"
+                value={formData.locationName}
                 onChange={handleChange}
               />
             </Grid>
@@ -150,6 +158,7 @@ export default function MaterialUIPickers() {
                 label="Address"
                 name="address"
                 autoComplete="address"
+                value={formData.locationAddress}
                 onChange={handleChange}
               />
             </Grid>
@@ -162,39 +171,15 @@ export default function MaterialUIPickers() {
                 label="Zipcode"
                 name="zipcode"
                 autoComplete="zipcode"
+                value={formData.locationZipCode}
                 onChange={handleChange}
               />
             </Grid>
+            <Grid>
+              {/* Date Picker Here */}
+            </Grid>
+          </Grid>
 
-            {/* <MuiPickersUtilsProvider utils={DateFnsUtils}> */}
-      <Grid container justifyContent="space-around">
-        <KeyboardDatePicker
-          disableToolbar
-          variant="inline"
-          format="MM/dd/yyyy"
-          margin="normal"
-          id="eventDate"
-          label="Date of Event"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-        <KeyboardTimePicker
-          margin="normal"
-          id="eventTime"
-          label="Time of Event"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change time',
-          }}
-        />
-      </Grid>
-    {/* </MuiPickersUtilsProvider> */}
-    </Grid>
-    </MuiPickersUtilsProvider>
           <Button
             type="submit"
             fullWidth

@@ -36,31 +36,19 @@ export const ADD_USER = gql`
 
 
 export const ADD_EVENT = gql`
-  mutation createEvent(
-    $title: String!
-    $description: String!
-    $locationName: String!
-    $locationAddress: String!
-    $locationZipCode: String!
-    $eventDate: String!
-    $eventTime: String!
-    $organizer: String!
-  ) {
-    createEvent(
-      title: $title
-      description: $description
-      locationName: $locationName
-      locationAddress: $locationAddress
-      locationZipCode: $locationZipCode
-      eventDate: $eventDate
-      eventTime: $eventTime
-      organizer: $organizer
-    ) {
-      _id
-      createAt
-      attendeesCount
-    }
+mutation createEvent (
+  $title: String!
+  $organizer: String!
+  $locationName: String!
+  $locationAddress: String!
+  $locationZipCode: Int!
+  $eventTime:String
+  $eventDate:String
+  $description: String) {
+  createEvent (title: $title, organizer: $organizer, locationName: $locationName, locationAddress: $locationAddress, locationZipCode: $locationZipCode, description: $description, eventDate: $eventDate, eventTime: $eventTime  ) {
+    title
   }
+}
 `;
 
 export const ADD_COMMENT = gql`
@@ -112,7 +100,3 @@ export const REMOVE_EVENT = gql`
     }
   }
 `;
-
-// export const UPDATE_USER = gql`
-//   mutation updateUser()
-// `;

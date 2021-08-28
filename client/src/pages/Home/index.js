@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Jumbotron from "../../components/Jumbotron";
-// import './style.css';
+import './style.css';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -24,7 +24,7 @@ import Paper from "@material-ui/core/Paper";
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import eventCards from "./eventCards";
+// import eventCards from "./eventCards";
 
 function Copyright() {
   return (
@@ -38,6 +38,7 @@ function Copyright() {
     </Typography>
   );
 }
+ 
 
 const styles = (theme) => ({
   root: {
@@ -55,6 +56,13 @@ const styles = (theme) => ({
   },
   heroButtons: {
     marginTop: theme.spacing(4),
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    border: 0,
+    borderRadius: 3,
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
   },
   imageWrapper: {
     position: 'relative',
@@ -126,13 +134,14 @@ const styles = (theme) => ({
 
 function EventCategories(props) {
   const { classes } = props;
-
+  
   const images = [
     {
       url:
         'https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=400&q=80',
       title: 'Snorkeling',
       width: '40%',
+      
     },
     {
       url:
@@ -183,6 +192,7 @@ function EventCategories(props) {
       width: '40%',
     },
   ];
+  
 
   return (
     <Container className={classes.root} component="section">
@@ -197,15 +207,15 @@ function EventCategories(props) {
                With <span><strong><em>Eventine</em></strong></span> - A place to find, create, and experience local happenings with other like-minded people. Sign In or create an account
                to start traversing events in and around your location. 
              </Typography>
-             <div className={classes.heroButtons}>
+             <div>
               <Grid container spacing={2} justifyContent="center">
                 <Grid item>
-                  <Button component={Link} to="/login" variant="contained" color="primary">
+                  <Button className={classes.heroButtons} component={Link} to="/login" variant="contained" color="primary">
                    Sign In
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button component={Link} to="/signup" variant="outlined" color="primary">
+                  <Button className={classes.heroButtons} component={Link} to="/signup" variant="contained" color="primary">
                     Signup
                   </Button>
                 </Grid>
@@ -216,6 +226,7 @@ function EventCategories(props) {
       <div className={classes.images}>
         {images.map((image) => (
           <ButtonBase
+            component={Link} to="/viewevents"
             key={image.title}
             className={classes.imageWrapper}
             style={{
