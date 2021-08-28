@@ -13,6 +13,7 @@ import Box from '@material-ui/core/Box';
 import EventNoteIcon from '@material-ui/icons/EventNote';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { alpha } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import DateFnsUtils from '@date-io/date-fns';
 import { ADD_EVENT } from "../../utils/mutations";
@@ -53,6 +54,7 @@ export default function MaterialUIPickers() {
     locationName: "",
     address: "",
     zipcode: "",
+    organizer: "",
     eventDate: "2021-08-25",
     eventTime: "21:00:00"
   });
@@ -72,25 +74,21 @@ export default function MaterialUIPickers() {
   };
 
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+  // const handleFormSubmit = async (event) => {
+  //   event.preventDefault();
 
-    try {
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
       console.log("test");
-    const {data} = await createEvent({
-      variables: {
-        ...formData
-      }
-    });
-
-    console.log(data);
+      const {data} = await createEvent({
+        variables: {
+          ...formData
+        },
+      });
+      console.log(data);
     
-    } catch (e) {
-      console.error(e);
+  
   }
-    
-  }
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
