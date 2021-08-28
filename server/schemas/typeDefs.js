@@ -92,13 +92,10 @@ const typeDefs = gql`
     ): Event
 
     deleteEvent(eventId: ID!): Event
-
-    addComment(
-      eventId: ID!
-      commentText: String!
-      commentAuthor: String!
-    ): Event
-
+    
+    addComment(eventId: ID!, commentText: String!, commentAuthor: String!): Event
+    updateComment(eventId: ID!, commentText: String!): Event
+    
     removeComment(eventId: ID!, commentId: ID!): Event
   }
 `;
