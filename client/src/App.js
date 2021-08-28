@@ -17,6 +17,7 @@ import Nav from "./components/Nav";
 import "./index.css";
 import Footer from "./components/Footer";
 import UserProfile from "./pages/UserProfile";
+import ViewEvents from "./pages/ViewEvents";
 
 
 const httpLink = createHttpLink({
@@ -38,7 +39,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-function App() {
+function App() { 
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -50,6 +51,7 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/userprofile" component={UserProfile} />
             <Route exact path="/createnewevents" component={NewEvents} />
+            <Route exact path="/viewevents" component={ViewEvents} />
             <Route component={NoMatch} />
           </Switch>
           <Footer />
