@@ -24,7 +24,7 @@ import Paper from "@material-ui/core/Paper";
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import eventCards from "./eventCards";
+// import eventCards from "./eventCards";
 
 function Copyright() {
   return (

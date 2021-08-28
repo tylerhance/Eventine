@@ -5,12 +5,14 @@ import { Link } from "react-router-dom";
 import { VIEW_EVENTS } from "../../utils/mutations";
 
 
-function EventsLanding() {
+function ViewEvents() {
+    // if (Auth.loggedIn()) {
     return (
         <div>
+            
             
         </div>
     )
 }
 
-export default EventsLanding;
+export default ViewEvents;
