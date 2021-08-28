@@ -97,7 +97,7 @@ export default function MaterialUIPickers() {
 
 
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid item xs={12}>
+      <Grid >
         <KeyboardDatePicker
           margin="normal"
           id="date-picker-dialog"
@@ -110,7 +110,7 @@ export default function MaterialUIPickers() {
           }}
         />
         </Grid>
-        <Grid item xs={12}>
+        <Grid >
         <KeyboardTimePicker
           margin="normal"
           id="time-picker"
