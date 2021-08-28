@@ -100,18 +100,46 @@ const resolvers = {
 
       return eventQ;
     },
-    updateEvent: async (parent, {eventId, title, organizer, locationName, locationAddress, locationZipCode, description, eventDate, eventTime}, context) => {
-      
-        return await User.findByIdAndUpdate({ _id: eventId }, {title, organizer, locationName, locationAddress, locationZipCode, description, eventDate, eventTime},
-           {
+
+    updateEvent: async (
+      parent,
+      {
+        eventId,
+        title,
+        organizer,
+        locationName,
+        locationAddress,
+        locationZipCode,
+        description,
+        eventDate,
+        eventTime,
+      },
+      context
+    ) => {
+      return await Event.findByIdAndUpdate(
+        { _id: eventId },
+        {
+          title,
+          organizer,
+          locationName,
+          locationAddress,
+          locationZipCode,
+          description,
+          eventDate,
+          eventTime,
+        },
+        {
           new: true,
-        });
-     
+        }
+      );
+
     },
 
     deleteEvent: async (parent, { eventId }, context) => {
       if (context.user) {
-      return Event.findOneAndDelete({ _id: eventId });
+
+        return Event.findOneAndDelete({ _id: eventId });
+
       }
 
       throw new AuthenticationError("Users can only delete their own events");
@@ -130,15 +158,20 @@ const resolvers = {
       );
     },
 
-    updateComment: async (parent, { eventId, commentId}, context) => {
-      return Event.findOneAndUpdate(
-        { _id: eventId },
-        { $pull: { comments: { _id: commentId } } },
+
+    updateComment: async (
+      parent,
+      { eventId, commentId, commentText },
+      context
+    ) => {
+      return await Event.findOneAndUpdate(
+        { _id: eventId, comments: { _id: commentId } },
+        { commentText },
         { new: true }
       );
     },
-  
-    
+
+
     removeComment: async (parent, { eventId, commentId }, context) => {
       return Event.findOneAndUpdate(
         { _id: eventId },
