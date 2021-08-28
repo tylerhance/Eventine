@@ -3,6 +3,7 @@ const dateFormat = require("../utils/dateFormat");
 
 const eventSchema = new Schema({
   title: {
+<<<<<<< HEAD
     type: String,
     required: "Please enter a title for your event!",
     minlength: 1,
@@ -44,8 +45,46 @@ const eventSchema = new Schema({
     trim: true,
   },
 
+=======
+        type: String,
+        required: 'Please enter a title for your event!',
+        minlength: 1,
+        maxlength: 280,
+        trim: true,
+  },
+  locationName: {
+          type: String,
+          required: true,
+          trim: true,
+  },
+  locationAddress: {
+          type: String,
+          required: true,
+          trim: true,
+  },
+  locationZipCode: {
+          type: Number,
+          required: true,
+          trim: true,
+  },
+>>>>>>> develop
   organizer: {
     type: String,
+    required: true,
+    trim: true,
+  },
+  description: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  eventDate: {
+    type: Date,
+    required: true,
+    trim: true, 
+  },
+  eventTime: {
+    type: Date,
     required: true,
     trim: true,
   },
@@ -61,10 +100,6 @@ const eventSchema = new Schema({
     default: 0,
   },
   comments: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Comment",
-    },
 
     {
       commentText: {

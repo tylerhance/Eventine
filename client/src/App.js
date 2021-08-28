@@ -14,6 +14,7 @@ import NewEvents from "./pages/NewEvents";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Nav from "./components/Nav";
+import "./index.css";
 import Footer from "./components/Footer";
 import UserProfile from "./pages/UserProfile";
 
@@ -41,7 +42,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div >
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />

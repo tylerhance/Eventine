@@ -14,7 +14,7 @@ const resolvers = {
       const params = _id ? { _id } : {};
       return Event.find(params).populate("location").sort({ createdAt: -1 });
     },
-    eventQ: async (parent, { eventId }) => {
+    eventDetails: async (parent, { eventId }) => {
       return Event.findOne({ _id: eventId });
     },
     eventZip: async (parent, {}) => {
@@ -70,14 +70,26 @@ const resolvers = {
     },
     createEvent: async (
       parent,
-      { title, organizer, location, address, zipCode }
+      {
+        title,
+        organizer,
+        locationName,
+        locationAddress,
+        locationZipCode,
+        description,
+        eventDate,
+        eventTime,
+      }
     ) => {
       const eventQ = await Event.create({
         title,
         organizer,
-        location,
-        address,
-        zipCode,
+        locationName,
+        locationAddress,
+        locationZipCode,
+        description,
+        eventDate,
+        eventTime,
       });
 
       await User.findOneAndUpdate(

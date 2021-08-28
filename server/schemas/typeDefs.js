@@ -15,16 +15,19 @@ const typeDefs = gql`
     organizer: String
     createdAt: String
     attendeesCount: Int
-    location: String!
-    address: String!
-    zipCode: Int!
-    comments: [Comment]!
+    locationName: String
+    locationAddress: String
+    locationZipCode: Int
+    description: String
+    eventDate: String
+    eventTime: String
+    comments: [Comment]
   }
 
   type location {
-    name: String
-    address: String
-    zipCode: Int
+    locationName: String
+    locationAddress: String
+    locationZipCode: Int
   }
 
   type Comment {
@@ -42,9 +45,8 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(userId: ID!): User
-    events(username: String): [Event]
-    eventQ(eventId: ID!): Event
-    eventZip: Event
+    events: [Event]
+    eventDetails(eventId: ID!): Event
     comments(eventId: ID!): [Event]
     me: User
   }
@@ -65,20 +67,37 @@ const typeDefs = gql`
       password: String
     ): User
     login(email: String!, password: String!): Auth
+
     createEvent(
-      title: String!
-      organizer: String!
-      location: String!
-      address: String!
-      zipCode: Int!
+      title: String
+      organizer: String
+      locationName: String
+      locationAddress: String
+      locationZipCode: Int
+      description: String
+      eventDate: String
+      eventTime: String
     ): Event
-    updateEvent(title: String, organizer: String, location: String!): Event
+
+    updateEvent(
+      title: String
+      organizer: String
+      locationName: String
+      locationAddress: String
+      locationZipCode: Int
+      description: String
+      eventDate: String
+      eventTime: String
+    ): Event
+
     deleteEvent(eventId: ID!): Event
+
     addComment(
       eventId: ID!
       commentText: String!
       commentAuthor: String!
     ): Event
+
     removeComment(eventId: ID!, commentId: ID!): Event
   }
 `;

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
-import './style.css'
+// import "./style.css";
 
 function Nav() {
   function showNavigation() {
@@ -31,7 +31,7 @@ function Nav() {
             <Link to="/signup">Signup</Link>
           </li>
           <li className="mx-1">
-            <Link to="/login">Login</Link>
+            <Link to="/login">Sign In</Link>
           </li>
         </ul>
       );
@@ -53,3 +53,4 @@ function Nav() {
 }
 
 export default Nav;
+
