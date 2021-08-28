@@ -8,25 +8,22 @@ const eventSchema = new Schema({
         minlength: 1,
         maxlength: 280,
         trim: true,
-      },
-  
+  },
   locationName: {
           type: String,
           required: true,
           trim: true,
-      },
+  },
   locationAddress: {
           type: String,
           required: true,
           trim: true,
-      },
+  },
   locationZipCode: {
           type: Number,
           required: true,
           trim: true,
-      },
-  
-  
+  },
   organizer: {
     type: String,
     required: true,

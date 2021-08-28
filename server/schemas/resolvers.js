@@ -14,7 +14,7 @@ const resolvers = {
       const params = _id ? { _id } : {};
       return Event.find(params).sort({ createdAt: -1 });
     },
-    eventQ: async (parent, { eventId }) => {
+    eventDetails: async (parent, { eventId }) => {
       return Event.findOne({ _id: eventId });
     },
     me: async (parent, args, context) => {
