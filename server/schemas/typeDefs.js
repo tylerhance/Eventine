@@ -21,7 +21,6 @@ const typeDefs = gql`
     description: String
     eventDate: String
     eventTime: String
-    createdAt:String
     comments: [Comment]
   }
 
@@ -71,7 +70,7 @@ const typeDefs = gql`
     ): User
     login(email: String!, password: String!): Auth
 
-    createEvent( title: String, organizer: String, locationName: String, locationAddress: String, locationZipCode: Int, description: String, eventDate: String, eventTime: String, attendeesCount: Int): Event
+    createEvent( title: String, organizer: String, locationName: String, locationAddress: String, locationZipCode: Int, description: String, eventDate: String, eventTime: String): Event
 
     updateEvent(title: String, organizer: String, locationName: String, locationAddress: String, locationZipCode: Int, description: String, eventDate: String, eventTime: String): Event
 
