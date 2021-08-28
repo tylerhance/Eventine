@@ -42,6 +42,7 @@ const typeDefs = gql`
     user(userId: ID!): User
     events(username: String): [Event]
     eventQ(eventId: ID!): Event
+    eventZip: Event
     comments(eventId: ID!): [Event]
     me: User
   }

@@ -12,10 +12,13 @@ const resolvers = {
     },
     events: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
-      return Event.find(params).sort({ createdAt: -1 });
+      return Event.find(params).populate("location").sort({ createdAt: -1 });
     },
     eventQ: async (parent, { eventId }) => {
       return Event.findOne({ _id: eventId });
+    },
+    eventZip: async (parent, {}) => {
+      return Event.findOne({ location: location.zipCode });
     },
     me: async (parent, args, context) => {
       if (context.user) {
