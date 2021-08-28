@@ -19,6 +19,10 @@ h1 {
 p {
   color: var(--light);
 }
-* {
-  background-color: var(--dark);
+
+#header {
+  padding: 10px;
+  border-color: #B12704;
+  border-radius: 10px;
+  
 }

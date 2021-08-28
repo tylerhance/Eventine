@@ -16,7 +16,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 // import Link from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
-import Image from "../../assets/images/explore.jpeg";
+import Image from "../../assets/images/coffee.jpeg";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
@@ -24,6 +24,7 @@ import Paper from "@material-ui/core/Paper";
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import eventCards from "./eventCards";
 
 function Copyright() {
   return (
@@ -38,90 +39,6 @@ function Copyright() {
   );
 }
 
-
-
-const useStyles = makeStyles((theme) => ({
-  icon: {
-    marginRight: theme.spacing(2),
-  },
-  image: {
-    backgroundImage: `url(${Image})`,
-    backgroundRepeat: "no-repeat",
-    backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[50]
-        : theme.palette.grey[900],
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-  },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  cardMedia: {
-    paddingTop: '56.25%', // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-  },
-}));
-
-// NEW CSS from Material
-
-
-
-// export default function Album() {
-
-//   const classes = useStyles();
-
-//   return (
-//     <React.Fragment>
-//       <CssBaseline />
-//       <main>
-//         {/* Hero unit */}
-//         <div className={classes.heroContent}>
-//           <Container maxWidth="sm">
-//             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-//               Connect & Explore...
-              
-//             </Typography>
-//             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-//               With <span><strong><em>Eventine</em></strong></span> - A place to find local happenings and connect with other like-minded people. Sign In or create an account
-//               to start traversing events in and around your location. 
-//             </Typography>
-//             </Container>
-//             </div>
-//       </main>
-//       {/* Footer */}
-//       <footer className={classes.footer}>
-//         <Typography variant="h6" align="center" gutterBottom>
-//         </Typography>
-//         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-//           Thanks for visiting! Eventine was built for you by Chris Abiva, Danny Roubin, Mohamed Bassiouni & Tyler Hance
-//         </Typography>
-//         <Copyright />
-//       </footer>
-//       {/* End footer */}
-//     </React.Fragment>
-//   );
-// }
-
 const styles = (theme) => ({
   root: {
     marginTop: theme.spacing(8),
@@ -131,6 +48,13 @@ const styles = (theme) => ({
     marginTop: theme.spacing(8),
     display: 'flex',
     flexWrap: 'wrap',
+  },
+  heroContent: {
+    backgroundColor: theme.palette.background.grey,
+    padding: theme.spacing(8, 0, 6),
+  },
+  heroButtons: {
+    marginTop: theme.spacing(4),
   },
   imageWrapper: {
     position: 'relative',
@@ -200,7 +124,7 @@ const styles = (theme) => ({
   },
 });
 
-function ProductCategories(props) {
+function EventCategories(props) {
   const { classes } = props;
 
   const images = [
@@ -255,23 +179,38 @@ function ProductCategories(props) {
     {
       url:
         'https://images.unsplash.com/photo-1518136247453-74e7b5265980?auto=format&fit=crop&w=400&q=80',
-      title: 'Reading',
+      title: 'Book Club',
       width: '40%',
     },
   ];
 
   return (
     <Container className={classes.root} component="section">
-      <div className={classes.heroContent}>
+      <CssBaseline />
+      <div id="header" className={classes.heroContent}>
            <Container maxWidth="sm">
              <Typography component="h1" variant="h1" align="center" color="textPrimary" gutterBottom>
                Connect & Explore...
               
              </Typography>
              <Typography variant="h5" align="center" color="textSecondary" paragraph>
-               With <span><strong><em>Eventine</em></strong></span> - A place to find local happenings and connect with other like-minded people. Sign In or create an account
+               With <span><strong><em>Eventine</em></strong></span> - A place to find, create, and experience local happenings with other like-minded people. Sign In or create an account
                to start traversing events in and around your location. 
              </Typography>
+             <div className={classes.heroButtons}>
+              <Grid container spacing={2} justifyContent="center">
+                <Grid item>
+                  <Button component={Link} to="/login" variant="contained" color="primary">
+                   Sign In
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button component={Link} to="/signup" variant="outlined" color="primary">
+                    Signup
+                  </Button>
+                </Grid>
+              </Grid>
+            </div>
             </Container>
              </div>
       <div className={classes.images}>
@@ -308,8 +247,8 @@ function ProductCategories(props) {
   );
 }
 
-ProductCategories.propTypes = {
+EventCategories.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ProductCategories);
+export default withStyles(styles)(EventCategories);
