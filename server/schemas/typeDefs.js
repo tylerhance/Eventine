@@ -37,7 +37,6 @@ const typeDefs = gql`
   type Auth {
     token: ID
     user: User
-    events(username: String): [Event]
   }
 
   type Query {

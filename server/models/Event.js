@@ -9,23 +9,23 @@ const eventSchema = new Schema({
         maxlength: 280,
         trim: true,
       },
-  location:  {
-      name: {
+  
+  locationName: {
           type: String,
           required: true,
           trim: true,
       },
-      address: {
+  locationAddress: {
           type: String,
           required: true,
           trim: true,
       },
-      zipCode: {
+  locationZipCode: {
           type: Number,
           required: true,
           trim: true,
-      }
-  },
+      },
+  
   
   organizer: {
     type: String,
@@ -43,7 +43,7 @@ const eventSchema = new Schema({
     trim: true, 
   },
   eventTime: {
-    type: String,
+    type: Date,
     required: true,
     trim: true,
   },
