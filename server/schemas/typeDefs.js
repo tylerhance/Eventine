@@ -3,9 +3,9 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type User {
     _id: ID
+    username: String
     firstName: String
     lastName: String
-    username: String
     email: String
   }
 
@@ -16,7 +16,7 @@ const typeDefs = gql`
     createdAt: String
     attendeesCount: Int
     location: [location]!
-    comments: [comments]!
+    comments: [Comment]!
   }
 
   type location {
@@ -25,9 +25,8 @@ const typeDefs = gql`
     zipCode: Int
   }
 
-  
-
-  type comments {
+  type Comment {
+    _id: ID
     commentText: String
     commentAuthor: String
     createdAt: String
@@ -36,14 +35,15 @@ const typeDefs = gql`
   type Auth {
     token: ID
     user: User
-    events(username: String): [Event]
   }
 
   type Query {
     users: [User]
-    user(username: String!): User
+    user(userId: ID!): User
     events(username: String): [Event]
-    event(eventId: ID!): Event
+    eventQ(eventId: ID!): Event
+    eventZip: Event
+    comments(eventId: ID!): [Event]
     me: User
   }
 
@@ -63,6 +63,15 @@ const typeDefs = gql`
       password: String
     ): User
     login(email: String!, password: String!): Auth
+    createEvent(title: String!, organizer: String!, location: String!): Event
+    updateEvent(title: String, organizer: String, location: String!): Event
+    deleteEvent(eventId: ID!): Event
+    addComment(
+      eventId: ID!
+      commentText: String!
+      commentAuthor: String!
+    ): Event
+    removeComment(eventId: ID!, commentId: ID!): Event
   }
 `;
 
