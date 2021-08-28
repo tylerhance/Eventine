@@ -15,7 +15,9 @@ const typeDefs = gql`
     organizer: String
     createdAt: String
     attendeesCount: Int
-    location: [location]!
+    location: String!
+    address: String!
+    zipCode: Int!
     comments: [Comment]!
   }
 
@@ -63,7 +65,13 @@ const typeDefs = gql`
       password: String
     ): User
     login(email: String!, password: String!): Auth
-    createEvent(title: String!, organizer: String!, location: String!): Event
+    createEvent(
+      title: String!
+      organizer: String!
+      location: String!
+      address: String!
+      zipCode: Int!
+    ): Event
     updateEvent(title: String, organizer: String, location: String!): Event
     deleteEvent(eventId: ID!): Event
     addComment(

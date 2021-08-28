@@ -68,8 +68,17 @@ const resolvers = {
 
       return { token, user };
     },
-    createEvent: async (parent, { title, organizer, location }) => {
-      const eventQ = await Event.create({ title, organizer, location });
+    createEvent: async (
+      parent,
+      { title, organizer, location, address, zipCode }
+    ) => {
+      const eventQ = await Event.create({
+        title,
+        organizer,
+        location,
+        address,
+        zipCode,
+      });
 
       await User.findOneAndUpdate(
         { username: organizer },
