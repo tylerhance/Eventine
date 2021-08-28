@@ -71,10 +71,10 @@ const resolvers = {
     createEvent: async (parent, { title, organizer, locationName, locationAddress, locationZipCode, description, eventDate, eventTime}) => {
       const eventQ = await Event.create({ title, organizer, locationName, locationAddress, locationZipCode, description, eventDate, eventTime});
 
-      await User.findOneAndUpdate(
-        { username: organizer },
-        { $addToSet: { events: eventQ._id } }
-      );
+      // await User.findOneAndUpdate(
+      //   { username: organizer },
+      //   { $addToSet: { events: eventQ._id } }
+      // );
 
       return eventQ;
     },
