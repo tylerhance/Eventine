@@ -21,7 +21,6 @@ const typeDefs = gql`
     description: String
     eventDate: String
     eventTime: String
-    createdAt:String
     comments: [Comment]
   }
 
