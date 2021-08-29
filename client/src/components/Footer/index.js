@@ -35,19 +35,19 @@ const Footer = () => {
           <ul className='ul-accounts'>
             <li className='footer-user-contact'>Chris Abiva</li>
             <li>
-              <a classname='footer-link'  href='mailto:chrisabiva@hotmail.com'>
+              <a className='footer-link'  href='mailto:chrisabiva@hotmail.com'>
                 <span> <EmailIcon /> </span>
                 chrisabiva@hotmail.com
               </a>
             </li>
             <li>
-              <a classname='footer-link' href='https://github.com/chabivz'>
+              <a className='footer-link' href='https://github.com/chabivz'>
                 <span> <GitHubIcon /> </span>
                 @chabivz
               </a>
             </li>
             <li>
-              <a classname='footer-link' href='https://www.linkedin.com/in/chrisabiva/'>
+              <a className='footer-link' href='https://www.linkedin.com/in/chrisabiva/'>
                   <span className='footer-icons'> <LinkedInIcon /> </span>
                   https://www.linkedin.com/in/chrisabiva
                 </a>
@@ -60,13 +60,13 @@ const Footer = () => {
           <ul className='ul-accounts'>
             <li className='footer-user-contact'>Danny Roubin</li>
             <li>
-              <a classname='footer-link'  href='mailto:dannyroubin1@gmail.com'>
+              <a className='footer-link'  href='mailto:dannyroubin1@gmail.com'>
                 <span> <EmailIcon /> </span>
                 dannyroubin1@gmail.com
               </a>
             </li>
             <li>
-              <a classname='footer-link' href='https://github.com/chabivz'>
+              <a className='footer-link' href='https://github.com/chabivz'>
                 <span> <GitHubIcon /> </span>
                 @DannyRoubin
               </a>
@@ -85,19 +85,19 @@ const Footer = () => {
           <ul className='ul-accounts'>
             <li className='footer-user-contact'>Tyler Hance</li>
             <li>
-              <a classname='footer-link'  href='mailto:tyler.hance@gmail.com'>
+              <a className='footer-link'  href='mailto:tyler.hance@gmail.com'>
                 <span> <EmailIcon /> </span>
                 tyler.hance@gmail.com
               </a>
             </li>
             <li>
-              <a classname='footer-link' href='https://github.com/tylerhance'>
+              <a className='footer-link' href='https://github.com/tylerhance'>
                 <span> <GitHubIcon /> </span>
                 @tylerhance
               </a>
             </li>
             <li>
-              <a classname='footer-link' href='https://www.linkedin.com/in/tyler-hance/'>
+              <a className='footer-link' href='https://www.linkedin.com/in/tyler-hance/'>
                   <span className='footer-icons'> <LinkedInIcon /> </span>
                   @in/tyler-hance
                 </a>
@@ -110,7 +110,7 @@ const Footer = () => {
           <ul className='ul-accounts'>
             <li className='footer-user-contact'>Mohamed Bassiouni</li>
             <li>
-              <a classname='footer-link'  href='mailto:mohamed@bassiouni.com'>
+              <a className='footer-link'  href='mailto:mohamed@bassiouni.com'>
                 <span> <EmailIcon /> </span>
                 mohamed@bassiouni.com
               </a>
@@ -122,7 +122,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a classname='footer-link' href='https://www.linkedin.com/in/mohamed-bassiouni-mba-55a8a8a3/'>
+              <a className='footer-link' href='https://www.linkedin.com/in/mohamed-bassiouni-mba-55a8a8a3/'>
                   <span className='footer-icons'> <LinkedInIcon /> </span>
                   @mohamed-bassiouni
                 </a>

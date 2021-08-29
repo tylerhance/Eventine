@@ -12,10 +12,14 @@ const resolvers = {
     },
     events: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
-      return Event.find(params).sort({ createdAt: -1 });
+      return Event.find(params).populate("location").sort({ createdAt: -1 });
     },
     eventDetails: async (parent, { eventId }) => {
       return Event.findOne({ _id: eventId });
+    },
+    eventZip: async (parent, { locationZipCode }) => {
+      const params = locationZipCode ? { locationZipCode } : {};
+      return Event.find(params).sort({ createdAt: -1 });
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -65,8 +69,29 @@ const resolvers = {
 
       return { token, user };
     },
-    createEvent: async (parent, { title, organizer, locationName, locationAddress, locationZipCode, description, eventDate, eventTime}) => {
-      const eventQ = await Event.create({ title, organizer, locationName, locationAddress, locationZipCode, description, eventDate, eventTime});
+    createEvent: async (
+      parent,
+      {
+        title,
+        organizer,
+        locationName,
+        locationAddress,
+        locationZipCode,
+        description,
+        eventDate,
+        eventTime,
+      }
+    ) => {
+      const eventQ = await Event.create({
+        title,
+        organizer,
+        locationName,
+        locationAddress,
+        locationZipCode,
+        description,
+        eventDate,
+        eventTime,
+      });
 
       await User.findOneAndUpdate(
         { username: organizer },
