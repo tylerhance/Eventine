@@ -117,7 +117,10 @@ const resolvers = {
     removeComment: async (parent, { eventId, commentId }, context) => {
       return Event.findOneAndUpdate(
         { _id: eventId },
-        { $pull: { comments: { _id: commentId } } },
+        
+        {
+          $set: { comments: { commentText} },
+        } ,
         { new: true }
       );
     },
