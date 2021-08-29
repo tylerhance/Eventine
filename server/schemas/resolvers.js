@@ -165,8 +165,10 @@ const resolvers = {
       context
     ) => {
       return await Event.findOneAndUpdate(
-        { _id: eventId, comments: { _id: commentId } },
-        { commentText },
+        { _id: eventId, "comments._id": commentId } , 
+        { $set: { "comments.$.commentText" : commentText } },
+       
+        
         { new: true }
       );
     },
@@ -175,6 +177,7 @@ const resolvers = {
     removeComment: async (parent, { eventId, commentId }, context) => {
       return Event.findOneAndUpdate(
         { _id: eventId },
+        
         { $pull: { comments: { _id: commentId } } },
         { new: true }
       );
