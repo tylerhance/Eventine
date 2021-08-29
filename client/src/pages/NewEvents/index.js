@@ -144,7 +144,7 @@ export default function EventForm() {
               onChange={handleChange}
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <TextField
               id="date"
               label="Event Date"
@@ -156,10 +156,10 @@ export default function EventForm() {
               }}
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <TextField
               id="time"
-              label="Alarm clock"
+              label="Event Time"
               type="time"
               className={classes.textField}
               name="eventTime"
