@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
+import { Avatar, Button, TextField, Grid, Typography } from "@material-ui/core";
 import EventNoteIcon from "@material-ui/icons/EventNote";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { ADD_EVENT } from "../../utils/mutations";
 import Auth from "../../utils/auth";
@@ -186,7 +182,7 @@ export default function EventForm() {
           className={classes.submit}
         >
           Create New Event
-        </Button>¬
+        </Button>
       </form>
     </div>
   );
