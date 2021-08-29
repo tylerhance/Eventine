@@ -48,7 +48,6 @@ const typeDefs = gql`
     events: [Event]
     eventDetails(eventId: ID!): Event
     eventZip(locationZipCode: Int!): [Event]
-    comments(eventId: ID!): [Event]
     me: User
   }
 
@@ -81,6 +80,7 @@ const typeDefs = gql`
     ): Event
 
     updateEvent(
+      eventId: ID!
       title: String
       organizer: String
       locationName: String
@@ -92,10 +92,15 @@ const typeDefs = gql`
     ): Event
 
     deleteEvent(eventId: ID!): Event
-    
-    addComment(eventId: ID!, commentText: String!, commentAuthor: String!): Event
-    updateComment(eventId: ID!, commentText: String!): Event
-    
+
+    addComment(
+      eventId: ID!
+      commentText: String!
+      commentAuthor: String!
+    ): Event
+    updateComment(eventId: ID!, commentId: ID!, commentText: String!): Event
+
+
     removeComment(eventId: ID!, commentId: ID!): Event
   }
 `;
