@@ -47,11 +47,7 @@ const typeDefs = gql`
     user(userId: ID!): User
     events: [Event]
     eventDetails(eventId: ID!): Event
-<<<<<<< HEAD
-    comments(eventId: ID!): [Event]
-=======
     eventZip(locationZipCode: Int!): [Event]
->>>>>>> develop
     me: User
   }
 
@@ -75,23 +71,6 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     createEvent(
-<<<<<<< HEAD
-      title: String, 
-      organizer: String, 
-      locationName: String, 
-      locationAddress: String, 
-      locationZipCode: Int, 
-      description: String, 
-      eventDate: String, 
-      eventTime: String): Event
-
-    updateEvent(title: String, organizer: String, locationName: String, locationAddress: String, locationZipCode: Int, description: String, eventDate: String, eventTime: String): Event
-
-    deleteEvent(eventId: ID!): Event
-
-    addComment(eventId: ID!, commentText: String!, commentAuthor: String!): Event
-    
-=======
       title: String
       organizer: String
       locationName: String
@@ -124,7 +103,6 @@ const typeDefs = gql`
     updateComment(eventId: ID!, commentId: ID!, commentText: String!): Event
 
 
->>>>>>> develop
     removeComment(eventId: ID!, commentId: ID!): Event
   }
 `;
