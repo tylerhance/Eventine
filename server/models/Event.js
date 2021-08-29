@@ -1,5 +1,5 @@
-const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const { Schema, model } = require("mongoose");
+const dateFormat = require("../utils/dateFormat");
 
 const eventSchema = new Schema({
   title: {
@@ -44,6 +44,21 @@ const eventSchema = new Schema({
     required: false,
     trim: true,
   },
+  description: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  eventDate: {
+    type: Date,
+    required: true,
+    trim: true,
+  },
+  eventTime: {
+    type: Date,
+    required: true,
+    trim: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -54,9 +69,8 @@ const eventSchema = new Schema({
     required: false,
     trim: true,
     default: 0,
- },
+  },
   comments: [
-
     {
       commentText: {
         type: String,
@@ -77,6 +91,6 @@ const eventSchema = new Schema({
   ],
 });
 
-const Event = model('Event', eventSchema);
+const Event = model("Event", eventSchema);
 
 module.exports = Event;

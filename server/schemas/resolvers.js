@@ -17,9 +17,10 @@ const resolvers = {
     eventDetails: async (parent, { eventId }) => {
       return Event.findOne({ _id: eventId });
     },
-    // eventZip: async (parent, {}) => {
-    //   return Event.findOne({ location: location.zipCode });
-    // },
+    eventZip: async (parent, { locationZipCode }) => {
+      const params = locationZipCode ? { locationZipCode } : {};
+      return Event.find(params).sort({ createdAt: -1 });
+    },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate("events");
@@ -68,9 +69,29 @@ const resolvers = {
 
       return { token, user };
     },
-    
-    createEvent: async (parent, { title, organizer, locationName, locationAddress, locationZipCode, description, eventDate, eventTime}) => {
-      const eventQ = await Event.create({ title, organizer, locationName, locationAddress, locationZipCode, description, eventDate, eventTime});
+    createEvent: async (
+      parent,
+      {
+        title,
+        organizer,
+        locationName,
+        locationAddress,
+        locationZipCode,
+        description,
+        eventDate,
+        eventTime,
+      }
+    ) => {
+      const eventQ = await Event.create({
+        title,
+        organizer,
+        locationName,
+        locationAddress,
+        locationZipCode,
+        description,
+        eventDate,
+        eventTime,
+      });
 
       // await User.findOneAndUpdate(
       //   { username: organizer },
@@ -79,7 +100,51 @@ const resolvers = {
 
       return eventQ;
     },
-    
+
+    updateEvent: async (
+      parent,
+      {
+        eventId,
+        title,
+        organizer,
+        locationName,
+        locationAddress,
+        locationZipCode,
+        description,
+        eventDate,
+        eventTime,
+      },
+      context
+    ) => {
+      return await Event.findByIdAndUpdate(
+        { _id: eventId },
+        {
+          title,
+          organizer,
+          locationName,
+          locationAddress,
+          locationZipCode,
+          description,
+          eventDate,
+          eventTime,
+        },
+        {
+          new: true,
+        }
+      );
+
+    },
+
+    deleteEvent: async (parent, { eventId }, context) => {
+      if (context.user) {
+
+        return Event.findOneAndDelete({ _id: eventId });
+
+      }
+
+      throw new AuthenticationError("Users can only delete their own events");
+    },
+
     addComment: async (parent, { eventId, commentText, commentAuthor }) => {
       return Event.findOneAndUpdate(
         { _id: eventId },
@@ -92,12 +157,27 @@ const resolvers = {
         }
       );
     },
-    deleteEvent: async (parent, { eventId }) => {
-      return Event.findOneAndDelete({ _id: eventId });
+
+
+    updateComment: async (
+      parent,
+      { eventId, commentId, commentText },
+      context
+    ) => {
+      return await Event.findOneAndUpdate(
+        { _id: eventId, "comments._id": commentId } , 
+        { $set: { "comments.$.commentText" : commentText } },
+       
+        
+        { new: true }
+      );
     },
-    removeComment: async (parent, { eventId, commentId }) => {
+
+
+    removeComment: async (parent, { eventId, commentId }, context) => {
       return Event.findOneAndUpdate(
         { _id: eventId },
+        
         { $pull: { comments: { _id: commentId } } },
         { new: true }
       );

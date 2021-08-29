@@ -35,6 +35,7 @@ export const ADD_USER = gql`
 `;
 
 
+<<<<<<< HEAD
 export const ADD_EVENT = gql`
 mutation createEvent (
   $title: String!
@@ -114,3 +115,5 @@ export const REMOVE_EVENT = gql`
     }
   }
 `;
+=======
+>>>>>>> develop
