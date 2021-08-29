@@ -17,7 +17,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import CommentList from "./comment";
+import CommentForm from "./addComment";
+import EventModal from "./eventModal";
 
 function Copyright() {
   return (
@@ -104,13 +106,20 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
-                      View
+                    <Button size="small" color="primary"><EventModal>View</EventModal>
+                      
                     </Button>
                     <Button size="small" color="primary">
                       Share
                     </Button>
+                    {"\n"}
                   </CardActions>
+                  <CommentList><div>
+                      </div>
+                      </CommentList>
+                      <CommentForm>
+
+                      </CommentForm>
                 </Card>
               </Grid>
             ))}
@@ -120,3 +129,5 @@ export default function Album() {
     </React.Fragment>
   );
 }
+
+

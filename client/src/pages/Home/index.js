@@ -25,6 +25,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 // import eventCards from "./eventCards";
+import Auth from "../../utils/auth";
 
 function Copyright() {
   return (
@@ -223,7 +224,9 @@ function EventCategories(props) {
             </div>
             </Container>
              </div>
+             
       <div className={classes.images}>
+     
         {images.map((image) => (
           <ButtonBase
             component={Link} to="/viewevents"
