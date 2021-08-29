@@ -5,6 +5,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/eventine', {
   useUnifiedTopology: true,
   useCreateIndex: true,
   useFindAndModify: false
-}).catch(err => conlsole.log(err));
+}).catch(err => console.log(err));
 
 module.exports = mongoose.connection;
