@@ -1,6 +1,9 @@
-import React from "react";
-import Jumbotron from "../../components/Jumbotron";
-// import './style.css';
+import React, { useState } from "react";
+import "./style.css";
+import Auth from "../../utils/auth";
+import { Link } from "react-router-dom";
+import { VIEW_EVENTS } from "../../utils/mutations";
+import AddCommentRoundedIcon from '@material-ui/icons/AddCommentRounded';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -14,66 +17,77 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-// import Link from '@material-ui/core/Link';
-import { Link } from 'react-router-dom';
-import Image from "../../assets/images/explore.jpeg";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import EmailIcon from "@material-ui/icons/Email";
-import Paper from "@material-ui/core/Paper";
+import CommentList from "./comment";
+import CommentForm from "./addComment";
+import EventModal from "./eventModal";
+
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 const useStyles = makeStyles((theme) => ({
-    icon: {
-      marginRight: theme.spacing(2),
-    },
-    image: {
-      backgroundImage: `url(${Image})`,
-      backgroundRepeat: "no-repeat",
-      backgroundColor:
-        theme.palette.type === "light"
-          ? theme.palette.grey[50]
-          : theme.palette.grey[900],
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    },
-    heroContent: {
-      backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing(8, 0, 6),
-    },
-    heroButtons: {
-      marginTop: theme.spacing(4),
-    },
-    cardGrid: {
-      paddingTop: theme.spacing(8),
-      paddingBottom: theme.spacing(8),
-    },
-    card: {
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-    },
-    cardMedia: {
-      paddingTop: '56.25%', // 16:9
-    },
-    cardContent: {
-      flexGrow: 1,
-    },
-    footer: {
-      backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing(6),
-    },
-  }));
-  
-  const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  
+  icon: {
+    marginRight: theme.spacing(2),
+  },
+  heroContent: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(8, 0, 6),
+  },
+  heroButtons: {
+    marginTop: theme.spacing(4),
+  },
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
+  card: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  cardMedia: {
+    paddingTop: '56.25%', // 16:9
+  },
+  cardContent: {
+    flexGrow: 1,
+  },
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(6),
+  },
+}));
+
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 export default function Album() {
-    const classes = useStyles();
- 
-    return ( 
-<React.Fragment>
+  const classes = useStyles();
+
+  return (
+    <React.Fragment>
       <CssBaseline />
       <main>
-    <Container className={classes.cardGrid} maxWidth="md">
+        {/* Hero unit */}
+        <div className={classes.heroContent}>
+          <Container maxWidth="sm">
+            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+              Events
+            </Typography>
+            <Typography variant="h5" align="center" color="textSecondary" paragraph>
+            </Typography>
+            
+          </Container>
+        </div>
+        <Container className={classes.cardGrid} maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map((card) => (
@@ -86,35 +100,36 @@ export default function Album() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      Event
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the content.
+                      *Event description*
                     </Typography>
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
-                      View
+                      <EventModal>View
+                        </EventModal>
                     </Button>
                     <Button size="small" color="primary">
-                      Edit
+                      Share
                     </Button>
+                    {"\n"}
                   </CardActions>
+                  <CommentList><div>
+                      </div>
+                      </CommentList>
+                      <CommentForm>
+
+                      </CommentForm>
                 </Card>
               </Grid>
             ))}
           </Grid>
         </Container>
       </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Thanks for visiting! Eventine was built for you by Chris Abiva, Danny Roubin, Mohamed Bassiouni & Tyler Hance
-        </Typography>
-      </footer>
-      {/* End footer */}
     </React.Fragment>
   );
 }
+
+

@@ -20,6 +20,10 @@ import Container from '@material-ui/core/Container';
 import CommentList from "./comment";
 import CommentForm from "./addComment";
 import EventModal from "./eventModal";
+import Camping from '../../assets/images/camping.jpeg';
+import Chess from '../../assets/images/chessclub.jpeg';
+import Coffee from '../../assets/images/coffee.jpeg'
+
 
 function Copyright() {
   return (
@@ -66,7 +70,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [
+  {
+    img: `${Camping}`,
+    desc: "Group Camping"
+  },
+  {
+    img: `${Coffee}`,
+    desc: "Coffee Meet and Greet"
+  },
+  {
+    img: `${Chess}`,
+    desc: "Chess in the Park"
+  },
+];
 
 export default function Album() {
   const classes = useStyles();
@@ -86,7 +103,7 @@ export default function Album() {
             
           </Container>
         </div>
-        <Container className={classes.cardGrid} maxWidth="md">
+        <Container className={classes.cardGrid} maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map((card) => (
@@ -94,20 +111,21 @@ export default function Album() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
+                    image={card.img}
+                    title="Image Title"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
                       Event
                     </Typography>
                     <Typography>
-                      *Event description*
+                      {card.desc}
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary"><EventModal>View</EventModal>
-                      
+                    <Button size="small" color="primary">
+                      <EventModal>View
+                        </EventModal>
                     </Button>
                     <Button size="small" color="primary">
                       Share

@@ -19,7 +19,7 @@ const CommentForm = () => {
 
         cache.writeQuery({
           query: QUERY_COMMENTS,
-          data: { thoughts: [addComment, ...comments] },
+          data: { comments: [addComment, ...comments] },
         });
       } catch (e) {
         console.error(e);
