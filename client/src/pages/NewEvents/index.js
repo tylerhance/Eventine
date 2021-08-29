@@ -8,6 +8,7 @@ import EventNoteIcon from "@material-ui/icons/EventNote";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { ADD_EVENT } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -56,6 +57,7 @@ export default function EventForm() {
           locationZipCode: formData.locationZipCode,
           eventDate: formData.eventDate,
           eventTime: formData.eventTime,
+          organizer: Auth.getProfile().data.username
         },
       });
 
@@ -172,6 +174,9 @@ export default function EventForm() {
               }}
             />
           </Grid>
+          <Grid item xs={12}>
+            {Auth.getProfile().data.username}
+          </Grid>
         </Grid>
         <Button
           type="submit"
@@ -181,7 +186,7 @@ export default function EventForm() {
           className={classes.submit}
         >
           Create New Event
-        </Button>
+        </Button>¬
       </form>
     </div>
   );
