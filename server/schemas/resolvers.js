@@ -93,10 +93,10 @@ const resolvers = {
         eventTime,
       });
 
-      await User.findOneAndUpdate(
-        { username: organizer },
-        { $addToSet: { events: eventQ._id } }
-      );
+      // await User.findOneAndUpdate(
+      //   { username: organizer },
+      //   { $addToSet: { events: eventQ._id } }
+      // );
 
       return eventQ;
     },

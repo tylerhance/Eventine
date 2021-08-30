@@ -150,6 +150,7 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  value={formData.title}
                   onChange={handleChange}
                 />
               </Grid>

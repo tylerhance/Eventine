@@ -3,30 +3,45 @@ const dateFormat = require("../utils/dateFormat");
 
 const eventSchema = new Schema({
   title: {
-    type: String,
-    required: "Please enter a title for your event!",
-    minlength: 1,
-    maxlength: 280,
-    trim: true,
+        type: String,
+        required: 'Please enter a title for your event!',
+        minlength: 1,
+        maxlength: 280,
+        trim: true,
   },
   locationName: {
-    type: String,
-    required: true,
-    trim: true,
+          type: String,
+          required: false,
+          trim: true,
   },
   locationAddress: {
-    type: String,
-    required: true,
-    trim: true,
+          type: String,
+          required: false,
+          trim: true,
   },
   locationZipCode: {
-    type: Number,
-    required: true,
-    trim: true,
+          type: Number,
+          required: false,
+          trim: true,
   },
   organizer: {
     type: String,
-    required: true,
+    required: false,
+    trim: true,
+  },
+  description: {
+    type: String,
+    required: false,
+    trim: true,
+  },
+  eventDate: {
+    type: Date,
+    required: false,
+    trim: true, 
+  },
+  eventTime: {
+    type: Date,
+    required: false,
     trim: true,
   },
   description: {
@@ -51,7 +66,7 @@ const eventSchema = new Schema({
   },
   attendeesCount: {
     type: Number,
-    required: true,
+    required: false,
     trim: true,
     default: 0,
   },
@@ -59,13 +74,13 @@ const eventSchema = new Schema({
     {
       commentText: {
         type: String,
-        required: true,
+        required: false,
         minlength: 1,
         maxlength: 280,
       },
       commentAuthor: {
         type: String,
-        required: true,
+        required: false,
       },
       createdAt: {
         type: Date,

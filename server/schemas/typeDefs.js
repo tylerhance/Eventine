@@ -59,6 +59,7 @@ const typeDefs = gql`
       email: String!
       password: String!
     ): Auth
+
     updateUser(
       firstName: String
       lastName: String
@@ -66,6 +67,7 @@ const typeDefs = gql`
       email: String
       password: String
     ): User
+
     login(email: String!, password: String!): Auth
 
     createEvent(

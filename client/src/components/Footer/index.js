@@ -72,7 +72,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a classname='footer-link' href='https://www.linkedin.com/in/danielroubin/'>
+              <a className='footer-link' href='https://www.linkedin.com/in/danielroubin/'>
                   <span className='footer-icons'> <LinkedInIcon /> </span>
                   @in/danielroubin/
                 </a>
@@ -116,7 +116,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a classname='footer-link' href='https://github.com/MohamedB-01'>
+              <a className='footer-link' href='https://github.com/MohamedB-01'>
                 <span> <GitHubIcon /> </span>
                 @MohamedB-01
               </a>
