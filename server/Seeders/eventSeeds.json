@@ -1,7 +1,7 @@
 [
   {
     "title": "Brian's Event",
-    "organizer": "Brian Kernighan", 
+    
     "locationName": "Brian's Place",
     "locationAddress": "101 Brian's st.",
     "locationZipCode": "98004", 
@@ -12,7 +12,7 @@
   
   {
     "title": "Max's Event",
-    "organizer": "Max Kanat-Alexander",
+    
     "locationName": "Max's Place",
     "locationAddress": "101 Max's st.",
     "locationZipCode": "98004", 
@@ -22,7 +22,7 @@
   },
   {
     "title": "Andy's Event",
-    "organizer": "Andy Lucky",
+    
     "locationName": "Andy's Place",
     "locationAddress": "101 Andy's st.",
     "locationZipCode": "98004", 
@@ -32,7 +32,7 @@
   },
   {
     "title": "Kent's Event",
-    "organizer": "Kent Beck",
+    
     "locationName": "Kent's Place",
     "locationAddress": "101 Kent's st.",
     "locationZipCode": "98005", 
@@ -42,7 +42,7 @@
   },
   {
     "title": "Edward's Event",
-    "organizer": "Edward Berard",
+    
     "locationName": "Edward's Place",
     "locationAddress": "101 Edward's st.",
     "locationZipCode": "98005", 
@@ -52,7 +52,7 @@
   },
   {
     "title": "Alan's Event",
-    "organizer": "Alan Kay",
+    
     "locationName": "Alan's Place",
     "locationAddress": "101 Alan's st.",
     "locationZipCode": "98005", 
@@ -62,7 +62,7 @@
   },
   {
     "title": "C.A's Event",
-    "organizer": "C.A Hoare",
+    
     "locationName": "C.A's Place",
     "locationAddress": "101 C.A's st.",
     "locationZipCode": "98006", 
@@ -72,7 +72,7 @@
   },
   {
     "title": "David's Event",
-    "organizer": "David Thomas",
+    
     "locationName": "David's Place",
     "locationAddress": "101 David's st.",
     "locationZipCode": "98006", 
@@ -82,7 +82,7 @@
   },
   {
     "title": "Donald's Event",
-    "organizer": "Donald Knuth",
+    
     "locationName": "Donald's Place",
     "locationAddress": "101 Donald's st.",
     "locationZipCode": "98006", 
@@ -92,7 +92,7 @@
   },
   {
     "title": "Lernantino's Event",
-    "organizer": "Lernantino Efficient",
+    
     "locationName": "Lernantino's Place",
     "locationAddress": "101 Lernantino's st.",
     "locationZipCode": "98004", 
