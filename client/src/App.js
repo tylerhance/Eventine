@@ -19,7 +19,6 @@ import Footer from "./components/Footer";
 import UserProfile from "./pages/UserProfile";
 import ViewEvents from "./pages/ViewEvents";
 
-
 const httpLink = createHttpLink({
   uri: "/graphql",
 });

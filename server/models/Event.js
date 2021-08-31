@@ -3,45 +3,44 @@ const dateFormat = require("../utils/dateFormat");
 
 const eventSchema = new Schema({
   title: {
-        type: String,
-        required: 'Please enter a title for your event!',
-        minlength: 1,
-        maxlength: 280,
-        trim: true,
-  },
-  locationName: {
-          type: String,
-          required: false,
-          trim: true,
-  },
-  locationAddress: {
-          type: String,
-          required: false,
-          trim: true,
-  },
-  locationZipCode: {
-          type: Number,
-          required: false,
-          trim: true,
-  },
-  organizer: {
     type: String,
-    required: false,
+    required: "Please enter a title for your event!",
+    minlength: 1,
+    maxlength: 280,
     trim: true,
   },
+  locationName: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  locationAddress: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  locationZipCode: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  organizer: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
   description: {
     type: String,
-    required: false,
+    required: true,
     trim: true,
   },
   eventDate: {
-    type: Date,
-    required: false,
-    trim: true, 
+    type: String,
+    required: true,
+    trim: true,
   },
   eventTime: {
-    type: Date,
-    required: false,
+    type: String,
+    required: true,
     trim: true,
   },
   description: {

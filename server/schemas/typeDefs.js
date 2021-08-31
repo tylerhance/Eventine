@@ -14,10 +14,10 @@ const typeDefs = gql`
     title: String
     organizer: String
     createdAt: String
-    attendeesCount: Int
+    attendeesCount: String
     locationName: String
     locationAddress: String
-    locationZipCode: Int
+    locationZipCode: String
     description: String
     eventDate: String
     eventTime: String
@@ -27,7 +27,7 @@ const typeDefs = gql`
   type location {
     locationName: String
     locationAddress: String
-    locationZipCode: Int
+    locationZipCode: String
   }
 
   type Comment {
@@ -47,7 +47,7 @@ const typeDefs = gql`
     user(userId: ID!): User
     events: [Event]
     eventDetails(eventId: ID!): Event
-    eventZip(locationZipCode: Int!): [Event]
+    eventZip(locationZipCode: String!): [Event]
     me: User
   }
 
@@ -75,7 +75,7 @@ const typeDefs = gql`
       organizer: String
       locationName: String
       locationAddress: String
-      locationZipCode: Int
+      locationZipCode: String
       description: String
       eventDate: String
       eventTime: String
@@ -87,7 +87,7 @@ const typeDefs = gql`
       organizer: String
       locationName: String
       locationAddress: String
-      locationZipCode: Int
+      locationZipCode: String
       description: String
       eventDate: String
       eventTime: String
