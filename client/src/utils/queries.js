@@ -12,7 +12,7 @@ export const GET_USER = gql`
 `;
 
 export const QUERY_COMMENTS = gql`
-  query getComments {
+  query events {
     comments {
       _id
       commentText
