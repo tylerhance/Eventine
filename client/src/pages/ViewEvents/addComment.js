@@ -7,7 +7,7 @@ import { QUERY_COMMENTS, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const CommentForm = () => {
+const CommentForm = (eventId) => {
   const [commentText, setCommentText] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
@@ -40,8 +40,9 @@ const CommentForm = () => {
     try {
       const { data } = await addComment({
         variables: {
+          eventId,
           commentText,
-          commentAuthor: Auth.getProfile().data.username,
+          commentAuthor: Auth.getProfile().data._id,
         },
       });
 

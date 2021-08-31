@@ -85,16 +85,6 @@ export const ADD_COMMENT = gql`
       commentAuthor: $commentAuthor
     ) {
       _id
-      title
-      organizer
-      createdAt
-      attendeesCount
-      locationName
-      locationAddress
-      locationZipCode
-      description
-      eventDate
-      eventTime
       comments {
         _id
         commentText
@@ -130,10 +120,3 @@ export const REMOVE_EVENT = gql`
     }
   }
 `;
-<<<<<<< HEAD
-
-// export const UPDATE_USER = gql`
-//   mutation updateUser()
-// `;
-=======
->>>>>>> develop
