@@ -71,27 +71,14 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     createEvent(
-<<<<<<< HEAD
       title: String, 
       organizer: String, 
       locationName: String, 
       locationAddress: String, 
-      locationZipCode: Int, 
+      locationZipCode: String, 
       description: String, 
       eventDate: String, 
       eventTime: String): Event
-
-    updateEvent(title: String, organizer: String, locationName: String, locationAddress: String, locationZipCode: Int, description: String, eventDate: String, eventTime: String): Event
-=======
-      title: String
-      organizer: String
-      locationName: String
-      locationAddress: String
-      locationZipCode: String
-      description: String
-      eventDate: String
-      eventTime: String
-    ): Event
 
     updateEvent(
       eventId: ID!
@@ -104,7 +91,6 @@ const typeDefs = gql`
       eventDate: String
       eventTime: String
     ): Event
->>>>>>> develop
 
     deleteEvent(eventId: ID!): Event
 
