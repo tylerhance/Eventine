@@ -49,8 +49,8 @@ export default function EventModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Cooking Lesson</h2>
-            <p id="transition-modal-description">Join us for lessons in how to cook!</p>
+            <h2 id="transition-modal-title">I am a modal</h2>
+            <p id="transition-modal-description">Bleep Boop</p>
           </div>
         </Fade>
       </Modal>

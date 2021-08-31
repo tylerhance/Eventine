@@ -23,6 +23,8 @@ import EventModal from "./eventModal";
 import Camping from '../../assets/images/camping.jpeg';
 import Chess from '../../assets/images/chessclub.jpeg';
 import Coffee from '../../assets/images/coffee.jpeg'
+import { green } from '@material-ui/core/colors';
+import Radio from '@material-ui/core/Radio';
 
 
 function Copyright() {
@@ -40,7 +42,7 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   icon: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(3),
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
@@ -73,15 +75,21 @@ const useStyles = makeStyles((theme) => ({
 const cards = [
   {
     img: `${Camping}`,
-    desc: "Group Camping"
+    title: "Group Camping",
+    desc: "Join us at the Mt.Rainier campgrounds for some s'mores and hiking!",
+    modal: "Group Camping event"
   },
   {
     img: `${Coffee}`,
-    desc: "Coffee Meet and Greet"
+    title: "Coffee and Music",
+    desc: "Coffee Meet and Greet with live music.",
+    modal: "Coffee and Live Music"
   },
   {
     img: `${Chess}`,
-    desc: "Chess in the Park"
+    title: "Chess Club",
+    desc: "Summon your wits and join the weekly Chess tournaments held at the park.",
+    modal: "Chess Club -  "
   },
 ];
 
@@ -116,7 +124,7 @@ export default function Album() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Event
+                      {card.title}
                     </Typography>
                     <Typography>
                       {card.desc}
@@ -124,12 +132,13 @@ export default function Album() {
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
-                      <EventModal>View
+                      <EventModal>{card.modal}
                         </EventModal>
                     </Button>
                     <Button size="small" color="primary">
                       Share
                     </Button>
+                    <Radio color="green">RSVP</Radio>
                     {"\n"}
                   </CardActions>
                   <CommentList><div>
