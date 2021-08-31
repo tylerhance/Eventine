@@ -40,25 +40,29 @@ export const ADD_USER = gql`
 
 
 export const ADD_EVENT = gql`
-mutation createEvent (
-  $title: String!
-  $locationName: String!
-  $locationAddress: String!
-  $locationZipCode: Int!
-  $eventTime:String
-  $eventDate:String
-  $description: String) {
+mutation addEvent (
+  $title: String,
+  $organizer: String,
+  $locationName: String,
+  $locationAddress: String,
+  $locationZipCode: String,
+  $eventTime:String,
+  $eventDate:String,
+  $description: String
+  ) {
   createEvent (
-    title: $title
-    locationName: $locationName
-    locationAddress: $locationAddress
-    locationZipCode: $locationZipCode
-    description: $description
-    eventDate: $eventDate
-    eventTime: $eventTime  
+    title: $title,
+    organizer: $organizer,
+    locationName: $locationName,
+    locationAddress: $locationAddress,
+    locationZipCode: $locationZipCode,
+    description: $description,
+    eventDate: $eventDate,
+    eventTime: $eventTime,
     ) {
-    _id
+    _id,
     organizer
+    attendeesCount
     comments {
       _id
       commentText

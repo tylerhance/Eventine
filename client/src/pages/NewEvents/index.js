@@ -33,31 +33,43 @@ export default function EventForm() {
     title: "",
     description: "",
     locationName: "",
-    address: "",
-    zipcode: "",
+    locationAddress: "",
+    locationZipCode: "",
     eventDate: "",
     eventTime: "",
+    organizer: Auth.getProfile().data._id,
   });
 
+
+      
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     
     try {
-      console.log("test");
+      console.log("'Clicked' handleFormSubmit");
+      console.log(' Auth.getProfile().data.username = ', Auth.getProfile().data._id)
+      console.log(formData)
+      console.log(formData.title)
+      console.log(formData.description)
+      console.log('eventDate ', formData.eventDate)
+      const userId = Auth.getProfile().data._id; 
+      console.log(`UserId ${userId}`);
       const mutationResponse = await createEvent({
+        
         variables: {
-          title: formData.title,
-          description: formData.description,
-          locationName: formData.locationName,
-          locationAddress: formData.locationAddress,
-          locationZipCode: formData.locationZipCode,
-          eventDate: formData.eventDate,
-          eventTime: formData.eventTime,
-          organizer: Auth.getProfile().data.username
+          ...formData,
+          // title: formData.title,
+          // description: formData.description,
+          // locationName: formData.locationName,
+          // locationAddress: formData.locationAddress,
+          // locationZipCode: formData.locationZipCode,
+          // eventDate: formData.eventDate,
+          // eventTime: formData.eventTime,
+          // organizer: userId
         },
       });
 
-      console.log(mutationResponse);
+      console.log('Mutation Response ' + mutationResponse);
     } catch (e) {
       console.error(e);
     }
@@ -66,7 +78,8 @@ export default function EventForm() {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
-      ...formData,
+      ...formData, 
+      
       [name]: value,
     });
   };
@@ -123,7 +136,7 @@ export default function EventForm() {
               variant="outlined"
               required
               fullWidth
-              id="address"
+              id="locationAddress"
               label="Address"
               name="locationAddress"
               autoComplete="address"
@@ -135,8 +148,11 @@ export default function EventForm() {
               variant="outlined"
               required
               fullWidth
-              id="zipcode"
+              id="locationZipCode"
               label="Zipcode"
+              pattern="[0-9]*"
+              type="number"
+              value={formData.locationZipCode}
               name="locationZipCode"
               autoComplete="zipcode"
               onChange={handleChange}
@@ -144,7 +160,7 @@ export default function EventForm() {
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
-              id="date"
+              id="eventDate"
               label="Event Date"
               type="date"
               name="eventDate"
@@ -156,9 +172,9 @@ export default function EventForm() {
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
-              id="time"
+              id="eventTime"
               label="Event Time"
-              type="time"
+              type="number"
               className={classes.textField}
               name="eventTime"
               onChange={handleChange}
@@ -169,9 +185,6 @@ export default function EventForm() {
                 step: 300, // 5 min
               }}
             />
-          </Grid>
-          <Grid item xs={12}>
-            {Auth.getProfile().data.username}
           </Grid>
         </Grid>
         <Button

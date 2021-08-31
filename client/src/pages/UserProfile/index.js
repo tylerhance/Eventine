@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { makeStyles } from "@material-ui/core/styles";
-import {
-  Typography,
-  Divider,
-  Paper,
-  Grid,
-  Card,
-  CardActionArea,
-  TextField,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Button,
-} from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 // import { UPDATE_USER } from "../../utils/mutations";
 import "./style.css";
 
@@ -57,8 +54,8 @@ export default function UserProfile() {
             <CardActionArea>
               <CardMedia
                 className={classes.media}
-                image="/static/images/cards/contemplative-reptile.jpg"
-                title="Contemplative Reptile"
+                image=""
+                title=""
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
@@ -83,8 +80,8 @@ export default function UserProfile() {
             <CardActionArea>
               <CardMedia
                 className={classes.media}
-                image="/static/images/cards/contemplative-reptile.jpg"
-                title="Contemplative Reptile"
+                image=""
+                title=""
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
