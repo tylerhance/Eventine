@@ -17,7 +17,7 @@ const typeDefs = gql`
     attendeesCount: Int
     locationName: String
     locationAddress: String
-    locationZipCode: Int
+    locationZipCode: String
     description: String
     eventDate: String
     eventTime: String
@@ -27,7 +27,7 @@ const typeDefs = gql`
   type location {
     locationName: String
     locationAddress: String
-    locationZipCode: Int
+    locationZipCode: String
   }
 
   type Comment {
@@ -75,12 +75,12 @@ const typeDefs = gql`
       organizer: String, 
       locationName: String, 
       locationAddress: String, 
-      locationZipCode: Int, 
+      locationZipCode: String, 
       description: String, 
       eventDate: String, 
       eventTime: String): Event
 
-    updateEvent(title: String, organizer: String, locationName: String, locationAddress: String, locationZipCode: Int, description: String, eventDate: String, eventTime: String): Event
+    updateEvent(title: String, organizer: String, locationName: String, locationAddress: String, locationZipCode: String, description: String, eventDate: String, eventTime: String): Event
 
     deleteEvent(eventId: ID!): Event
 
