@@ -122,10 +122,3 @@ export const REMOVE_EVENT = gql`
     }
   }
 `;
-<<<<<<< HEAD
-
-// export const UPDATE_USER = gql`
-//   mutation updateUser()
-// `;
-=======
->>>>>>> develop
