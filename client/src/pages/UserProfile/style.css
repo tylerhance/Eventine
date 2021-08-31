@@ -1,0 +1,59 @@
+:root {
+  --primary: #232F3E;
+  --secondary: #F3A847;
+  --tertiary: #B12704;
+  --light: #ddb96b;
+  --dark: #2b3240;
+  --error: rgb(228, 46, 1);
+  --spacing-one: calc(1rem * 0.5);
+  --spacing-two: calc(1rem);
+  --eventine-light: #ddb96b;
+  --eventine-dark: #2b3240;
+  --eventine-primary: #2b3240;
+  --eventine-secondary: #ddb96b;
+}
+
+.divider {
+  padding-top: 50px;
+  
+  border: none;
+}
+* { 
+  background-color: none;
+}
+.N28 {
+  font-size: 28px;
+  color: black;
+}
+
+.N26 a {
+  font-size: 18px;
+  color:black;
+
+}
+
+.N26 a:link {
+  font-size: 18px;
+  font-weight: 100;
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.N26 a:hover {
+  font-size: 20px;
+  font-weight: 100;
+  color: #ddb96b;
+  background-color: transparent;
+  text-decoration: none;
+}
+.paper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px, 0px, 100px, 0px;
+}
+
+.myEvents {
+  height: 600px;
+}

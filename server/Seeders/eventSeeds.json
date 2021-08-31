@@ -1,0 +1,103 @@
+[
+  {
+    "title": "Brian's Event",
+    
+    "locationName": "Brian's Place",
+    "locationAddress": "101 Brian's st.",
+    "locationZipCode": "98004", 
+    "description": "So much Happening, lots of fun ", 
+    "eventDate": "8282021",
+    "eventTime": "1200"
+    },
+  
+  {
+    "title": "Max's Event",
+    
+    "locationName": "Max's Place",
+    "locationAddress": "101 Max's st.",
+    "locationZipCode": "98004", 
+    "description": "So much Happening, lots of fun ", 
+    "eventDate": "8282021",
+    "eventTime": "1200"
+  },
+  {
+    "title": "Andy's Event",
+    
+    "locationName": "Andy's Place",
+    "locationAddress": "101 Andy's st.",
+    "locationZipCode": "98004", 
+    "description": "So much Happening, lots of fun ", 
+    "eventDate": "8282021",
+    "eventTime": "1200"
+  },
+  {
+    "title": "Kent's Event",
+    
+    "locationName": "Kent's Place",
+    "locationAddress": "101 Kent's st.",
+    "locationZipCode": "98005", 
+    "description": "So much Happening, lots of fun ", 
+    "eventDate": "8282021",
+    "eventTime": "1200"
+  },
+  {
+    "title": "Edward's Event",
+    
+    "locationName": "Edward's Place",
+    "locationAddress": "101 Edward's st.",
+    "locationZipCode": "98005", 
+    "description": "So much Happening, lots of fun ", 
+    "eventDate": "8282021",
+    "eventTime": "1200"
+  },
+  {
+    "title": "Alan's Event",
+    
+    "locationName": "Alan's Place",
+    "locationAddress": "101 Alan's st.",
+    "locationZipCode": "98005", 
+    "description": "So much Happening, lots of fun ", 
+    "eventDate": "8282021",
+    "eventTime": "1200"
+  },
+  {
+    "title": "C.A's Event",
+    
+    "locationName": "C.A's Place",
+    "locationAddress": "101 C.A's st.",
+    "locationZipCode": "98006", 
+    "description": "So much Happening, lots of fun ", 
+    "eventDate": "8282021",
+    "eventTime": "1200"
+  },
+  {
+    "title": "David's Event",
+    
+    "locationName": "David's Place",
+    "locationAddress": "101 David's st.",
+    "locationZipCode": "98006", 
+    "description": "So much Happening, lots of fun ", 
+    "eventDate": "8282021",
+    "eventTime": "1200"
+  },
+  {
+    "title": "Donald's Event",
+    
+    "locationName": "Donald's Place",
+    "locationAddress": "101 Donald's st.",
+    "locationZipCode": "98006", 
+    "description": "So much Happening, lots of fun ", 
+    "eventDate": "8282021",
+    "eventTime": "1200"
+  },
+  {
+    "title": "Lernantino's Event",
+    
+    "locationName": "Lernantino's Place",
+    "locationAddress": "101 Lernantino's st.",
+    "locationZipCode": "98004", 
+    "description": "So much Happening, lots of fun ", 
+    "eventDate": "8282021",
+    "eventTime": "1200"
+  }
+]
