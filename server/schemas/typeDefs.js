@@ -14,10 +14,10 @@ const typeDefs = gql`
     title: String
     organizer: String
     createdAt: String
-    attendeesCount: Int
+    attendeesCount: String
     locationName: String
     locationAddress: String
-    locationZipCode: Int
+    locationZipCode: String
     description: String
     eventDate: String
     eventTime: String
@@ -27,7 +27,7 @@ const typeDefs = gql`
   type location {
     locationName: String
     locationAddress: String
-    locationZipCode: Int
+    locationZipCode: String
   }
 
   type Comment {
@@ -47,7 +47,7 @@ const typeDefs = gql`
     user(userId: ID!): User
     events: [Event]
     eventDetails(eventId: ID!): Event
-    comments(eventId: ID!): [Event]
+    eventZip(locationZipCode: String!): [Event]
     me: User
   }
 
@@ -71,6 +71,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     createEvent(
+<<<<<<< HEAD
       title: String, 
       organizer: String, 
       locationName: String, 
@@ -81,11 +82,40 @@ const typeDefs = gql`
       eventTime: String): Event
 
     updateEvent(title: String, organizer: String, locationName: String, locationAddress: String, locationZipCode: Int, description: String, eventDate: String, eventTime: String): Event
+=======
+      title: String
+      organizer: String
+      locationName: String
+      locationAddress: String
+      locationZipCode: String
+      description: String
+      eventDate: String
+      eventTime: String
+    ): Event
+
+    updateEvent(
+      eventId: ID!
+      title: String
+      organizer: String
+      locationName: String
+      locationAddress: String
+      locationZipCode: String
+      description: String
+      eventDate: String
+      eventTime: String
+    ): Event
+>>>>>>> develop
 
     deleteEvent(eventId: ID!): Event
 
-    addComment(eventId: ID!, commentText: String!, commentAuthor: String!): Event
-    
+    addComment(
+      eventId: ID!
+      commentText: String!
+      commentAuthor: String!
+    ): Event
+    updateComment(eventId: ID!, commentId: ID!, commentText: String!): Event
+
+
     removeComment(eventId: ID!, commentId: ID!): Event
   }
 `;

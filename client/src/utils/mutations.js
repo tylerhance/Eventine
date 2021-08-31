@@ -1,5 +1,9 @@
 import { gql } from "@apollo/client";
 
+// export const UPDATE_USER = gql`
+//   mutation updateUser()
+// `;
+
 export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -36,31 +40,37 @@ export const ADD_USER = gql`
 
 
 export const ADD_EVENT = gql`
-  mutation createEvent(
-    $title: String!
-    $description: String!
-    $locationName: String!
-    $locationAddress: String!
-    $locationZipCode: String!
-    $eventDate: String!
-    $eventTime: String!
-    $organizer: String!
+mutation addEvent (
+  $title: String,
+  $organizer: String,
+  $locationName: String,
+  $locationAddress: String,
+  $locationZipCode: String,
+  $eventTime:String,
+  $eventDate:String,
+  $description: String
   ) {
-    createEvent(
-      title: $title
-      description: $description
-      locationName: $locationName
-      locationAddress: $locationAddress
-      locationZipCode: $locationZipCode
-      eventDate: $eventDate
-      eventTime: $eventTime
-      organizer: $organizer
+  createEvent (
+    title: $title,
+    organizer: $organizer,
+    locationName: $locationName,
+    locationAddress: $locationAddress,
+    locationZipCode: $locationZipCode,
+    description: $description,
+    eventDate: $eventDate,
+    eventTime: $eventTime,
     ) {
+    _id,
+    organizer
+    attendeesCount
+    comments {
       _id
-      createAt
-      attendeesCount
+      commentText
+      commentAuthor
+      createdAt
     }
   }
+}
 `;
 
 export const ADD_COMMENT = gql`
@@ -112,7 +122,10 @@ export const REMOVE_EVENT = gql`
     }
   }
 `;
+<<<<<<< HEAD
 
 // export const UPDATE_USER = gql`
 //   mutation updateUser()
 // `;
+=======
+>>>>>>> develop

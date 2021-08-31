@@ -35,7 +35,7 @@
 - Start the server by typing `npm run start`
 
 ## Usage
-- Visit the deployed Heroku app [Eventine]()
+- Visit the deployed Heroku app [Eventine](https://floating-brook-52751.herokuapp.com/)
 
 
 |Demo|
