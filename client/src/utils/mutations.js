@@ -85,12 +85,10 @@ export const ADD_COMMENT = gql`
       commentAuthor: $commentAuthor
     ) {
       _id
-      eventText
-      eventAuthor
-      createdAt
       comments {
         _id
         commentText
+        commentAuthor
         createdAt
       }
     }
