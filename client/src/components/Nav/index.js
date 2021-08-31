@@ -10,7 +10,7 @@ function Nav() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
-          <li className="mx-1">
+          <li className="mx-2">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <Link to="/userprofile">User Profile</Link>
           </li>
