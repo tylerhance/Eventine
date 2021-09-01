@@ -5,6 +5,8 @@ import EventNoteIcon from "@material-ui/icons/EventNote";
 import { makeStyles } from "@material-ui/core/styles";
 import { ADD_EVENT } from "../../utils/mutations";
 import Auth from "../../utils/auth";
+import { useQuery } from '@apollo/client';
+import { QUERY_EVENTS } from "../../utils/queries";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -28,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function EventForm() {
   const classes = useStyles();
+  // const {data, loading} = useQuery(QUERY_EVENTS);
   const [createEvent, { error }] = useMutation(ADD_EVENT);
   const [formData, setFormData] = useState({
     title: "",

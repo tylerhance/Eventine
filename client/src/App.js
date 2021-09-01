@@ -18,6 +18,8 @@ import "./index.css";
 import Footer from "./components/Footer";
 import UserProfile from "./pages/UserProfile";
 import ViewEvents from "./pages/ViewEvents";
+import EvenList from "./components/EvenList";
+import EventForm from "./components/EventForm";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
