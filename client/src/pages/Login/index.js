@@ -99,13 +99,7 @@ export default function SignInSide() {
     const token = data.login.token;
     Auth.login(token);
 
-<<<<<<< HEAD
-    this.props.history.push('/userprofile');
-    } catch(err) {
-      console.log(err)
-    }
-=======
->>>>>>> 4369210 (Adding syntax for create event submit to take user to main events page. Updated resolvers to match organizer/eventID.)
+
   };
 
   return (
