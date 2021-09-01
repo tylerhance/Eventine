@@ -20,8 +20,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Image from '../../assets/images/concert.jpeg';
 
 
-
-
 // function Login(props) {
 //   const [formState, setFormState] = useState({ email: '', password: '' });
 //   const [login, { error }] = useMutation(LOGIN);
@@ -114,7 +112,8 @@ export default function SignInSide() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("test");
+    try {
+      console.log("test");
     const {data} = await addUser({
       variables: {
         ...formData
@@ -126,6 +125,9 @@ export default function SignInSide() {
     Auth.login(token);
 
     this.props.history.push('/userprofile');
+    } catch(err) {
+      console.log(err)
+    }
   };
 
   return (
@@ -169,6 +171,7 @@ export default function SignInSide() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
+            <span></span>
             <Button
               type="submit"
               fullWidth
@@ -178,6 +181,7 @@ export default function SignInSide() {
             >
               Sign In
             </Button>
+
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">

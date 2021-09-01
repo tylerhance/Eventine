@@ -143,11 +143,6 @@ export default function UserProfile() {
             </span>
           </Paper>
           <Paper className={classes.paper}>
-          <CardContent>
-            <CardActions>
-              <Button size="small" color="primary">Organize New Event</Button>
-            </CardActions>
-          </CardContent>
           </Paper>
         </Grid>
       </Grid>
