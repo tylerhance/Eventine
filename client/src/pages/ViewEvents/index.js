@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
-import { VIEW_EVENTS } from "../../utils/mutations";
+// import { VIEW_EVENTS } from "../../utils/mutations";
 import AddCommentRoundedIcon from '@material-ui/icons/AddCommentRounded';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -25,20 +25,10 @@ import Chess from '../../assets/images/chessclub.jpeg';
 import Coffee from '../../assets/images/coffee.jpeg'
 import { green } from '@material-ui/core/colors';
 import Radio from '@material-ui/core/Radio';
+import { QUERY_ME } from '../../utils/queries';
+import { useQuery } from '@apollo/client'; 
+import { useParams } from 'react-router-dom';
 
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -93,9 +83,18 @@ const cards = [
   },
 ];
 
+
 export default function Album() {
   const classes = useStyles();
+  const { eventId } = useParams();
 
+  const {loading, data} = useQuery(QUERY_ME, {
+   variables: { eventId: eventId }, 
+  });
+  const userInfo = data?.event || {};
+
+  console.log("this is loading", loading)
+  console.log("this is data", userInfo);
   return (
     <React.Fragment>
       <CssBaseline />
@@ -138,7 +137,9 @@ export default function Album() {
                     <Button size="small" color="primary">
                       Share
                     </Button>
+                    <Button>
                     <Radio color="green">RSVP</Radio>
+                    </Button>
                     {"\n"}
                   </CardActions>
                   <CommentList><div>

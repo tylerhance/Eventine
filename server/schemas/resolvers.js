@@ -4,6 +4,14 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    me: async (parent, args, context) => {
+      console.log("test query me")
+      console.log(context.user)
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate("events");
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
     users: async (parent, args, context) => {
       return User.find().populate("events");
     },
@@ -21,12 +29,13 @@ const resolvers = {
       const params = locationZipCode ? { locationZipCode } : {};
       return Event.find(params).sort({ createdAt: -1 });
     },
-    me: async (parent, args, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("events");
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
+    // me: async (parent, args, context) => {
+    //   console.log("test in me")
+    //   if (context.user) {
+    //     return User.findOne({ _id: context.user._id }).populate("events");
+    //   }
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
   },
   Mutation: {
     addUser: async (
@@ -93,10 +102,10 @@ const resolvers = {
         eventTime,
       });
 
-      // await User.findOneAndUpdate(
-      //   { username: organizer },
-      //   { $addToSet: { events: eventQ._id } }
-      // );
+      await User.findOneAndUpdate(
+        { _id: organizer },
+        { $addToSet: { events: eventQ._id } }
+      );
 
       return eventQ;
     },

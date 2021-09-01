@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%", 
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -70,6 +70,9 @@ export default function EventForm() {
       });
 
       console.log('Mutation Response ' + mutationResponse);
+
+      window.location.href='/viewevents';
+
     } catch (e) {
       console.error(e);
     }
