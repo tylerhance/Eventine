@@ -50,7 +50,6 @@ const typeDefs = gql`
     events: [Event]
     eventDetails(eventId: ID!): Event
     eventZip(locationZipCode: String!): [Event]
-    
   }
 
   type Mutation {

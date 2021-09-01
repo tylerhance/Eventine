@@ -164,6 +164,21 @@ export default function EventForm() {
               onChange={handleChange}
             />
           </Grid>
+          <Grid item xs={12}>
+            <TextField
+              variant="outlined"
+              required
+              fullWidth
+              id="organizer"
+              label="Zipcode"
+              pattern="[0-9]*"
+              type="number"
+              value={formData.organizer}
+              name="organizer"
+              autoComplete="organizer"
+              onChange={handleChange}
+            />
+          </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
               id="eventDate"
