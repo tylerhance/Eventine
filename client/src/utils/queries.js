@@ -22,18 +22,38 @@ export const QUERY_COMMENTS = gql`
   }
 `;
 
-export const QUERY_ME = gql`
-  query me {
-    me {
+// export const QUERY_ME = gql`
+//   {
+//     me {
+//       _id
+//       username
+//       email
+//       comments {
+//         _id
+//         commentText
+//         commentAuthor
+//         createdAt
+//       }
+      
+//     }
+//   }
+// `;
+
+export const QUERY_ME = gql `{
+	me{
+    events{
       _id
-      username
-      email
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
+    title
+    organizer
+    createdAt
+    attendeesCount
+    locationName
+    locationAddress
+    locationZipCode
+    description
+    eventDate
+    eventTime
     }
-  }
+  } 
+}
 `;

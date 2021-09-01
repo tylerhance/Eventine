@@ -7,6 +7,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
+    events: [Event]
   }
 
   type Event {
@@ -43,12 +44,13 @@ const typeDefs = gql`
   }
 
   type Query {
+    me: User
     users: [User]
     user(userId: ID!): User
     events: [Event]
     eventDetails(eventId: ID!): Event
     eventZip(locationZipCode: String!): [Event]
-    me: User
+    
   }
 
   type Mutation {
