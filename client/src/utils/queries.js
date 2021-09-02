@@ -20,12 +20,17 @@ export const SINGLE_EVENT = gql`
       locationName
       locationAddress
       locationZipCode
+      organizer {
+        username
+      }
       comments {
         _id
         commentText
         commentAuthor
         createdAt
       }
+      eventDate
+      eventTime
     }
   }
 `;
