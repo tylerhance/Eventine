@@ -73,14 +73,15 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     createEvent(
-      title: String, 
-      organizer: String, 
-      locationName: String, 
-      locationAddress: String, 
-      locationZipCode: String, 
-      description: String, 
-      eventDate: String, 
-      eventTime: String): Event
+      title: String
+      organizer: String
+      locationName: String
+      locationAddress: String
+      locationZipCode: String
+      description: String
+      eventDate: String
+      eventTime: String
+    ): Event
 
     updateEvent(
       eventId: ID!
@@ -102,7 +103,6 @@ const typeDefs = gql`
       commentAuthor: String!
     ): Event
     updateComment(eventId: ID!, commentId: ID!, commentText: String!): Event
-
 
     removeComment(eventId: ID!, commentId: ID!): Event
   }

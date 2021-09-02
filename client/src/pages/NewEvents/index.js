@@ -43,22 +43,22 @@ export default function EventForm() {
     organizer: Auth.getProfile().data._id,
   });
 
-
-      
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    
+
     try {
       console.log("'Clicked' handleFormSubmit");
-      console.log(' Auth.getProfile().data.username = ', Auth.getProfile().data._id)
-      console.log(formData)
-      console.log(formData.title)
-      console.log(formData.description)
-      console.log('eventDate ', formData.eventDate)
-      const userId = Auth.getProfile().data._id; 
+      console.log(
+        " Auth.getProfile().data.username = ",
+        Auth.getProfile().data._id
+      );
+      console.log(formData);
+      console.log(formData.title);
+      console.log(formData.description);
+      console.log("eventDate ", formData.eventDate);
+      const userId = Auth.getProfile().data._id;
       console.log(`UserId ${userId}`);
       const mutationResponse = await createEvent({
-        
         variables: {
           ...formData,
           // title: formData.title,
@@ -72,10 +72,14 @@ export default function EventForm() {
         },
       });
 
+<<<<<<< Updated upstream
       console.log('Mutation Response ', mutationResponse);
 
       window.location.href='/viewevents';
 
+=======
+      console.log("Mutation Response", mutationResponse);
+>>>>>>> Stashed changes
     } catch (e) {
       console.error(e);
     }
@@ -84,8 +88,8 @@ export default function EventForm() {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
-      ...formData, 
-      
+      ...formData,
+
       [name]: value,
     });
   };

@@ -74,3 +74,19 @@ export const QUERY_EVENTS = gql`
 
   }
 `;
+
+export const QUERY_EVENTS = gql`
+  query getEvents {
+    events {
+      _id
+      description
+      organizer {
+        _id
+        email
+        username
+      }
+      eventDate
+      eventTime
+    }
+  }
+`;
