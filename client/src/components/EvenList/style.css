@@ -1,0 +1,22 @@
+.jumbotron {
+  font-size: 50px;
+}
+.container {
+  text-align: center;
+  width: 100%;
+}
+.event-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  /* gap: 2px; */
+  
+}
+/* .event-container div {
+padding: 100px, 100px, 100px, 100px;
+  
+} */
+
+.card h4 {
+  border: 10px;
+  color: black;
+}
