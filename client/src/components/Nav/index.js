@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
-// import "./style.css";
+import "./style.css";
 
 function Nav() {
   function showNavigation() {
@@ -10,6 +10,10 @@ function Nav() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
+          <li className="mx-2">
+            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+            Hello USER!
+          </li>
           <li className="mx-2">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <Link to="/userprofile">User Profile</Link>

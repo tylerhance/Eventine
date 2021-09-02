@@ -72,7 +72,7 @@ export default function EventForm() {
         },
       });
 
-      console.log('Mutation Response ' + mutationResponse);
+      console.log('Mutation Response ', mutationResponse);
 
       window.location.href='/viewevents';
 

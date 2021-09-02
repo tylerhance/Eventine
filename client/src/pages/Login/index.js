@@ -10,7 +10,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-// import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -85,6 +84,9 @@ export default function SignInSide() {
     });
   };
 
+  const wrongCredentials = () => {
+
+  }
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -96,9 +98,7 @@ export default function SignInSide() {
     });
     const token = data.login.token;
     console.log(data.login.user);
-    
     Auth.login(token,data.login.user);
-
     console.log(data);
   } catch(err) { console.error.apply(err)}
 
@@ -147,7 +147,7 @@ export default function SignInSide() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <span></span>
+            <span id="wrongCredentials">Wrong Email or Password</span>
             <Button
               type="submit"
               fullWidth
