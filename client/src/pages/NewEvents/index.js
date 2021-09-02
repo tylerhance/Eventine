@@ -5,7 +5,7 @@ import EventNoteIcon from "@material-ui/icons/EventNote";
 import { makeStyles } from "@material-ui/core/styles";
 import { ADD_EVENT } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-import { useQuery } from '@apollo/client';
+import { useQuery } from "@apollo/client";
 import { QUERY_EVENTS } from "../../utils/queries";
 
 const useStyles = makeStyles((theme) => ({
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", 
+    width: "100%",
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -72,14 +72,9 @@ export default function EventForm() {
         },
       });
 
-<<<<<<< Updated upstream
-      console.log('Mutation Response ', mutationResponse);
+      console.log("Mutation Response ", mutationResponse);
 
-      window.location.href='/viewevents';
-
-=======
-      console.log("Mutation Response", mutationResponse);
->>>>>>> Stashed changes
+      window.location.href = "/viewevents";
     } catch (e) {
       console.error(e);
     }

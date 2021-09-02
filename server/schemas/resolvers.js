@@ -104,9 +104,10 @@ const resolvers = {
         eventDate,
         eventTime,
       });
-      console.log(organizer);
-      await Event.populate(eventQ, { path: "organizer", model: "User" });
-      console.log(eventQ);
+
+      const result = await Event.findOne({ _id: eventQ._id }).populate(
+        "organizer"
+      );
 
       await User.findOneAndUpdate(
         { _id: organizer },
@@ -114,12 +115,6 @@ const resolvers = {
       );
 
       console.log("Event", result);
-
-      await User.findOneAndUpdate(
-        { username: organizer },
-        { $addToSet: { events: eventQ._id } }
-      );
-
       return result;
     },
 
