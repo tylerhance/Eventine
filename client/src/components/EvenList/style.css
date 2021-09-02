@@ -7,12 +7,15 @@
 .event-container {
   display: inline-flex;
   flex-wrap: wrap;
-  margin-right: .5rem
+  margin-right: .5rem;
+  text-align: center;
+  width: 100%;
 }
 
 .card {
   margin: 10px;
   border: 1px solid black;
+  border-radius: 5px;
 }
 
 .card h4 {

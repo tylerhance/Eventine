@@ -142,8 +142,6 @@ export default function UserProfile() {
               <a href="#">Trapeze Class</a>
             </span>
           </Paper>
-          <Paper className={classes.paper}>
-          </Paper>
         </Grid>
       </Grid>
     </div>

@@ -11,6 +11,27 @@ export const GET_USER = gql`
   }
 `;
 
+export const SINGLE_EVENT = gql`
+  query getSingleThought($eventId: ID!) {
+    eventDetails(eventId: $eventId) {
+      _id
+      title
+      description
+      locationName
+      locationAddress
+      locationZipCode
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
+    }
+  }
+`;
+
+
+
 export const QUERY_COMMENTS = gql`
   query events {
     comments {
