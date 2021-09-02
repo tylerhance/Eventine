@@ -63,7 +63,11 @@ export const QUERY_EVENTS = gql`
     events{
       _id
       description
-      organizer
+      organizer {
+        _id
+        email
+        username
+      }
       eventDate
       eventTime
     }

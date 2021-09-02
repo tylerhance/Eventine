@@ -94,11 +94,15 @@ export default function SignInSide() {
         ...formData
       },
     });
-    console.log(data);
-
     const token = data.login.token;
-    Auth.login(token);
+    console.log(data.login.user);
+    
+    Auth.login(token,data.login.user);
 
+    console.log(data);
+  } catch(err) { console.error.apply(err)}
+
+    
 
   };
 

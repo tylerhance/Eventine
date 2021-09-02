@@ -1,7 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Event } = require("../models");
 const { signToken } = require("../utils/auth");
-
+const mongoose = require("mongoose");
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
@@ -20,7 +20,7 @@ const resolvers = {
     },
     events: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
-      return Event.find(params).populate("location").sort({ createdAt: -1 });
+      return Event.find(params).populate("location").populate("organizer").sort({ createdAt: -1 });
     },
     eventDetails: async (parent, { eventId }) => {
       return Event.findOne({ _id: eventId });
@@ -101,7 +101,10 @@ const resolvers = {
         eventDate,
         eventTime,
       });
-
+      console.log(organizer);
+      await Event.populate(eventQ, { path: "organizer", model: "User" });
+      console.log(eventQ);
+      
       await User.findOneAndUpdate(
         { _id: organizer },
         { $addToSet: { events: eventQ._id } }

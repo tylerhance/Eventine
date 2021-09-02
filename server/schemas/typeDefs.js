@@ -13,7 +13,7 @@ const typeDefs = gql`
   type Event {
     _id: ID
     title: String
-    organizer: String
+    organizer: User
     createdAt: String
     attendeesCount: String
     locationName: String
@@ -41,6 +41,7 @@ const typeDefs = gql`
   type Auth {
     token: ID
     user: User
+
   }
 
   type Query {
