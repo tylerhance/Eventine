@@ -1,0 +1,12 @@
+.containerSingle {
+  display: flex;
+  justify-content: center;
+}
+.singleEvent {
+  color: black;
+  align-items: center;
+}
+.labels {
+  font-size: 25px;
+  text-align: center;
+}
