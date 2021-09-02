@@ -12,10 +12,6 @@ function Nav() {
         <ul className="flex-row">
           <li className="mx-2">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            Hello USER!
-          </li>
-          <li className="mx-2">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <Link to="/userprofile">User Profile</Link>
           </li>
           <li className="mx-1">

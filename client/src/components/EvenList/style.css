@@ -3,18 +3,17 @@
 }
 .container {
   text-align: center;
-  width: 100%;
 }
 .event-container {
   display: inline-flex;
   flex-wrap: wrap;
-  /* gap: 2px; */
-  
+  margin-right: .5rem
 }
-/* .event-container div {
-padding: 100px, 100px, 100px, 100px;
-  
-} */
+
+.card {
+  margin: 10px;
+  border: 1px solid black;
+}
 
 .card h4 {
   border: 10px;

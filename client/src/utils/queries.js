@@ -71,6 +71,9 @@ export const QUERY_EVENTS = gql`
       }
       eventDate
       eventTime
+      title
+      description
+      locationName
     }
   }
 `;
