@@ -10,6 +10,8 @@ export const LOGIN = gql`
       token
       user {
         _id
+        username
+        email
       }
     }
   }
@@ -38,39 +40,42 @@ export const ADD_USER = gql`
   }
 `;
 
-
 export const ADD_EVENT = gql`
-mutation addEvent (
-  $title: String,
-  $organizer: String,
-  $locationName: String,
-  $locationAddress: String,
-  $locationZipCode: String,
-  $eventTime:String,
-  $eventDate:String,
-  $description: String
+  mutation addEvent(
+    $title: String
+    $organizer: String
+    $locationName: String
+    $locationAddress: String
+    $locationZipCode: String
+    $eventTime: String
+    $eventDate: String
+    $description: String
   ) {
-  createEvent (
-    title: $title,
-    organizer: $organizer,
-    locationName: $locationName,
-    locationAddress: $locationAddress,
-    locationZipCode: $locationZipCode,
-    description: $description,
-    eventDate: $eventDate,
-    eventTime: $eventTime,
+    createEvent(
+      title: $title
+      organizer: $organizer
+      locationName: $locationName
+      locationAddress: $locationAddress
+      locationZipCode: $locationZipCode
+      description: $description
+      eventDate: $eventDate
+      eventTime: $eventTime
     ) {
-    _id,
-    organizer
-    attendeesCount
-    comments {
       _id
-      commentText
-      commentAuthor
-      createdAt
+      organizer {
+        _id
+        email
+        username
+      }
+      attendeesCount
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
     }
   }
-}
 `;
 
 export const ADD_COMMENT = gql`

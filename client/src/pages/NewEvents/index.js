@@ -5,7 +5,7 @@ import EventNoteIcon from "@material-ui/icons/EventNote";
 import { makeStyles } from "@material-ui/core/styles";
 import { ADD_EVENT } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-import { useQuery } from '@apollo/client';
+import { useQuery } from "@apollo/client";
 import { QUERY_EVENTS } from "../../utils/queries";
 
 const useStyles = makeStyles((theme) => ({
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", 
+    width: "100%",
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -43,22 +43,22 @@ export default function EventForm() {
     organizer: Auth.getProfile().data._id,
   });
 
-
-      
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    
+
     try {
       console.log("'Clicked' handleFormSubmit");
-      console.log(' Auth.getProfile().data.username = ', Auth.getProfile().data._id)
-      console.log(formData)
-      console.log(formData.title)
-      console.log(formData.description)
-      console.log('eventDate ', formData.eventDate)
-      const userId = Auth.getProfile().data._id; 
+      console.log(
+        " Auth.getProfile().data.username = ",
+        Auth.getProfile().data._id
+      );
+      console.log(formData);
+      console.log(formData.title);
+      console.log(formData.description);
+      console.log("eventDate ", formData.eventDate);
+      const userId = Auth.getProfile().data._id;
       console.log(`UserId ${userId}`);
       const mutationResponse = await createEvent({
-        
         variables: {
           ...formData,
           // title: formData.title,
@@ -72,10 +72,9 @@ export default function EventForm() {
         },
       });
 
-      console.log('Mutation Response ' + mutationResponse);
+      console.log("Mutation Response ", mutationResponse);
 
-      window.location.href='/viewevents';
-
+      window.location.href = "/viewevents";
     } catch (e) {
       console.error(e);
     }
@@ -84,8 +83,8 @@ export default function EventForm() {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
-      ...formData, 
-      
+      ...formData,
+
       [name]: value,
     });
   };
@@ -164,6 +163,7 @@ export default function EventForm() {
               onChange={handleChange}
             />
           </Grid>
+
           <Grid item xs={12} sm={6}>
             <TextField
               id="eventDate"

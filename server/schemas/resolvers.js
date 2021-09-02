@@ -1,12 +1,12 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Event } = require("../models");
 const { signToken } = require("../utils/auth");
-
+const mongoose = require("mongoose");
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
-      console.log("test query me")
-      console.log(context.user)
+      console.log("test query me");
+      console.log(context.user);
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate("events");
       }
@@ -20,10 +20,13 @@ const resolvers = {
     },
     events: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
-      return Event.find(params).populate("location").sort({ createdAt: -1 });
+      return Event.find(params)
+        .populate("location")
+        .populate("organizer")
+        .sort({ createdAt: -1 });
     },
     eventDetails: async (parent, { eventId }) => {
-      return Event.findOne({ _id: eventId });
+      return Event.findOne({ _id: eventId }).populate("organizer");
     },
     eventZip: async (parent, { locationZipCode }) => {
       const params = locationZipCode ? { locationZipCode } : {};
@@ -102,12 +105,17 @@ const resolvers = {
         eventTime,
       });
 
+      const result = await Event.findOne({ _id: eventQ._id }).populate(
+        "organizer"
+      );
+
       await User.findOneAndUpdate(
         { _id: organizer },
         { $addToSet: { events: eventQ._id } }
       );
 
-      return eventQ;
+      console.log("Event", result);
+      return result;
     },
 
     updateEvent: async (
@@ -141,14 +149,11 @@ const resolvers = {
           new: true,
         }
       );
-
     },
 
     deleteEvent: async (parent, { eventId }, context) => {
       if (context.user) {
-
         return Event.findOneAndDelete({ _id: eventId });
-
       }
 
       throw new AuthenticationError("Users can only delete their own events");
@@ -167,26 +172,23 @@ const resolvers = {
       );
     },
 
-
     updateComment: async (
       parent,
       { eventId, commentId, commentText },
       context
     ) => {
       return await Event.findOneAndUpdate(
-        { _id: eventId, "comments._id": commentId } , 
-        { $set: { "comments.$.commentText" : commentText } },
-       
-        
+        { _id: eventId, "comments._id": commentId },
+        { $set: { "comments.$.commentText": commentText } },
+
         { new: true }
       );
     },
 
-
     removeComment: async (parent, { eventId, commentId }, context) => {
       return Event.findOneAndUpdate(
         { _id: eventId },
-        
+
         { $pull: { comments: { _id: commentId } } },
         { new: true }
       );

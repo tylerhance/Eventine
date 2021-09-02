@@ -22,9 +22,9 @@ const EventList = ({
               {showUsername ? (
                 <Link
                   className="text-light"
-                  to={`/userprofile/${event.organizer}`}
+                  to={`/userprofile/${event.organizer.username}`}
                 >
-                  {event.organizer} <br />
+                  {event.organizer.username} <br />
                   <span style={{ fontSize: '1rem' }}>
                     had this event on {event.eventDate}
                   </span>
