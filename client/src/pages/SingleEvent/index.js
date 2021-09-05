@@ -102,11 +102,10 @@ const ViewEvent = () => {
       </div>
       {/* <div className="labels" component="h1" variant="h5">
         {new Intl.DateTimeFormat("en-GB", {
-          year: "numeric",
-          month: "long",
-          day: "2-digit",
-        }).format(events.eventTime)}
-      </div> */}
+          hour: "numeric",
+          minute: "numberic",
+        }).format(events.eventTime)} */}
+      {/* </div> */}
       <form noValidate onSubmit={handleFormSubmit}>
         <label>Comments</label>
         <input type="text" />
