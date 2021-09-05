@@ -4,9 +4,11 @@ class AuthService {
   
 
   getProfile() {
+
     return decode(this.getToken());
   }
 
+  
   loggedIn() {
     // Checks if there is a saved token and it's still valid
     const token = this.getToken();
@@ -36,17 +38,15 @@ class AuthService {
     // Retrieves the user token from localStorage
     return localStorage.getItem('id_token');
   }
-
-  login(idToken) {
-    // Saves user token to localStorage
-    localStorage.setItem('id_token', idToken);
-
-    window.location.assign('/userprofile');
+  getUser() {
+    // Retrieves the user token from localStorage
+    return localStorage.getItem('user');
   }
 
-  SignUp(idToken) {
+  login(idToken, user) {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
+    localStorage.setItem('user', user);
 
     window.location.assign('/userprofile');
   }

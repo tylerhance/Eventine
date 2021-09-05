@@ -7,12 +7,13 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
+    events: [Event]
   }
 
   type Event {
     _id: ID
     title: String
-    organizer: String
+    organizer: User
     createdAt: String
     attendeesCount: String
     locationName: String
@@ -40,15 +41,16 @@ const typeDefs = gql`
   type Auth {
     token: ID
     user: User
+
   }
 
   type Query {
+    me: User
     users: [User]
     user(userId: ID!): User
     events: [Event]
     eventDetails(eventId: ID!): Event
     eventZip(locationZipCode: String!): [Event]
-    me: User
   }
 
   type Mutation {
@@ -71,14 +73,15 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     createEvent(
-      title: String, 
-      organizer: String, 
-      locationName: String, 
-      locationAddress: String, 
-      locationZipCode: String, 
-      description: String, 
-      eventDate: String, 
-      eventTime: String): Event
+      title: String
+      organizer: String
+      locationName: String
+      locationAddress: String
+      locationZipCode: String
+      description: String
+      eventDate: String
+      eventTime: String
+    ): Event
 
     updateEvent(
       eventId: ID!
@@ -100,7 +103,6 @@ const typeDefs = gql`
       commentAuthor: String!
     ): Event
     updateComment(eventId: ID!, commentId: ID!, commentText: String!): Event
-
 
     removeComment(eventId: ID!, commentId: ID!): Event
   }

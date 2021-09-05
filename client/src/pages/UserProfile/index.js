@@ -142,13 +142,6 @@ export default function UserProfile() {
               <a href="#">Trapeze Class</a>
             </span>
           </Paper>
-          <Paper className={classes.paper}>
-          <CardContent>
-            <CardActions>
-              <Button size="small" color="primary">Organize New Event</Button>
-            </CardActions>
-          </CardContent>
-          </Paper>
         </Grid>
       </Grid>
     </div>
